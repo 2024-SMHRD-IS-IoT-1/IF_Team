@@ -1,12 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import { Signup } from './Components/LoginSignup/Signup';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './components/LoginPage';
+import ForgotID from './components/ForgotID';
+import ForgotPW from './components/ForgotPW';
+import HomePage from './components/HomePage';
+
+
 
 function App() {
   return (
-    <div>
-        <Signup></Signup>
-    </div>
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/forgot-id" element={<ForgotID />} />
+      <Route path="/forgot-password" element={<ForgotPW />} />
+      <Route path="/HomePage" element={<HomePage />} />
+    </Routes>
   );
 }
 
