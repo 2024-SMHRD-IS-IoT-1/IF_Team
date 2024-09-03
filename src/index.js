@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
-import App from '../src/Components/Feedback(review)/FeedbackPage';
+import App from '../src/Components/LoginSignup/HomePage';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'; // BrowserRouter 임포트
 
