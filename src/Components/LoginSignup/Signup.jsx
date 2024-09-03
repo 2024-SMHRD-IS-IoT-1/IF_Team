@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import '../../css/signup.css';
-import axios from 'axios';
+
 
 
 // icon 이미지
