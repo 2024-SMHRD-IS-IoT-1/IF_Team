@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
+import '../style/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
 import { Link } from 'react-router-dom';
-import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
 
 function HomePage() {
   const navigate = useNavigate(); // useNavigate 훅 사용
@@ -16,11 +16,11 @@ function HomePage() {
         <h1>스마트 식물 무드등</h1>
       </header>
       <nav className="navbar">
-      <ul className="menu">
-          <Link to="/">Home</Link>
-          <Link to="#about">About</Link>
-          <Link to="#services">Services</Link>
-          <Link to="#contact">Contact</Link>
+        <ul className="menu">
+          <Link to="/" className='submenu'>Home</Link>
+          <Link to="#about" className='submenu'>About</Link>
+          <Link to="#services" className='submenu'>Services</Link>
+          <Link to="#contact" className='submenu'>Contact</Link>
         </ul>
       </nav>
       <div className="button-container">
