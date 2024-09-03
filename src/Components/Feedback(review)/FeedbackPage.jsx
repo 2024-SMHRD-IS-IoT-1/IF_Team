@@ -1,10 +1,9 @@
 import React, {useState, useEffect}from 'react'
+import { BrowserRouter } from 'react-router-dom';
+import '../../css/FeedbackPage';
 
-// 상품의 정보 넘겨주기
-const { product } = location.state;
 
-
-// 별점 구현
+/*// 별점 구현
 const Star = () => {
     const [Rating, setRating] = useState();
     const StarHover = (rating) => {
@@ -16,10 +15,13 @@ const Star = () => {
       console.log('Selected Rating:', rating);
   };
 }
-
+*/
 const FeedbackPage = () => {
   return (
-    <div className='text-center py-20'>
+    <div>
+      feedback
+    </div>
+  /*  <div className='text-center py-20'>
         <p>구매하신 상품은 어떠셨나요?</p>
         <p>평점을 남겨주세요</p>
         <div className='flex justify-center items-center'>
@@ -31,6 +33,8 @@ const FeedbackPage = () => {
         ))}
         </div>
     </div>
+    */
+
   )
 }
 
