@@ -39,7 +39,6 @@ const handleGenderChange = (event) => {
                 <FaUser size={24}/>
                 <input type="text" placeholder='  name' />
             </div>
-            
             <div className='userid'>
                 <TiUserDelete size={24}/>
                 <input type="text" placeholder='  id' />
