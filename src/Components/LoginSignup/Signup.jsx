@@ -9,7 +9,7 @@ import { RiLockPasswordFill} from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaBirthdayCake } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
-import { ImManWoman } from "react-icons/im";
+//import { ImManWoman } from "react-icons/im";
 import { TiUserDelete } from "react-icons/ti";
 
 
@@ -17,12 +17,16 @@ import { TiUserDelete } from "react-icons/ti";
 export const Signup = () => {
     const [action, setAction] = useState("Sign UP");
     const [gender, setGender] = useState('');
-    
+    const [userName, setUserName] = useState("");
       
 // 성별 radio 박스
 const handleGenderChange = (event) => {
   setGender(event.target.value);
 };
+
+const SignupRequest = () => {
+    axios.post("url/signup",{userName: userName})
+}
 
 
   return (
@@ -37,30 +41,32 @@ const handleGenderChange = (event) => {
         <div className='input-container'>
             <div className='name'>
                 <FaUser size={24}/>
-                <input type="text" placeholder='  name' />
+                <input type="text" placeholder='  name' id = 'InputName' onChange={(e) => {
+                    console.log(e.target.value)
+                }} />
             </div>
             
-            <div className='userid'>
+            <div className='userid' >
                 <TiUserDelete size={24}/>
-                <input type="text" placeholder='  id' />
+                <input type="text" placeholder='  id' id = 'InputID'/>
             </div>
             <div className='password'>
                 <RiLockPasswordFill size={24}/>
-                <input type="password" placeholder='  password' />
+                <input type="password" placeholder='  password' id='InputPW' />
             </div>
             <div className='passwordcheck'>
                 <MdPassword size={24}/>
-                <input type="password" placeholder='  password check'/>
+                <input type="password" placeholder='  password check' />
             </div>
             <div className='inputs'>
                 <IoIosMail size={24} />
-                <input type="email" placeholder='  email'/>
+                <input type="email" placeholder='  email' id = 'InputEmail'/>
             </div>
             <div className='birth'>
                 <FaBirthdayCake size={24}/>
-                <input type="date" placeholder='  bithday'/>
+                <input type="date" placeholder='  bithday' id ='Inputbirth'/>
             </div>
-            <div className='gender'>
+            {/*<div className='gender'>
                 < ImManWoman size={24}/>
                 <label className='male_female'>
                    <input
@@ -68,6 +74,7 @@ const handleGenderChange = (event) => {
                       value='male'
                       checked={gender === 'male'}
                       onChange={handleGenderChange}
+                      id ='Inputmale'
                     />남자
                 </label>
                 <label>
@@ -78,7 +85,7 @@ const handleGenderChange = (event) => {
                    onChange={handleGenderChange}
                   />여자
                 </label>
-            </div>
+            </div>*/}
         </div>
 
 
@@ -89,3 +96,4 @@ const handleGenderChange = (event) => {
    
   )
 }
+export default Signup;
