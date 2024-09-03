@@ -97,8 +97,5 @@ const SignupRequest = () => {
    
   )
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 96774bde577ffeaa3fcf0b86f8836157d9de0fd0
 export default Signup;
