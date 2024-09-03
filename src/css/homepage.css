@@ -11,21 +11,21 @@
 /* 헤더 스타일링 */
 .header {
   position: absolute;
-  top: 20px;
+  top: 150px;
   width: 100%;
 }
 
 .header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #333;
+  color: #144100;
 }
 
 /* 메뉴바 스타일링 */
 .navbar {
   margin-top: 60px; /* 헤더와의 간격 */
-  background-color: #f0f0f0;
-  padding: 10px 20px;
+  background-color: #000500;
+  padding: 15px 100px;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgb(255, 255, 255);
 }
@@ -39,17 +39,17 @@
 }
 
 .menu li {
-  margin: 0 15px;
+  margin: 0 55px;
 }
 
-.menu li a {
+.menu li link {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: bold;
 }
 
-.menu li a:hover {
-  color: #007BFF;
+.menu li link:hover {
+  color: #096bd4;
 }
 
 /* 버튼 컨테이너 스타일링 */
@@ -57,7 +57,7 @@
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
 }
 
 /* 버튼 스타일링 */
@@ -67,10 +67,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #007BFF;
+  background-color: #043602;
   color: rgb(255, 255, 255);
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #000000;
 }

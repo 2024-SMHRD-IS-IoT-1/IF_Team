@@ -1,9 +1,11 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/app.css';
-import ForgotID from './ForgotID'; 
-import ForgotPW from './ForgotPW'; 
+import '../../css/app.css';
+
+
+
+
 
 function LoginPage() {
   const [id, setId] = useState('');
@@ -14,7 +16,7 @@ function LoginPage() {
     e.preventDefault();
     console.log('ID:', id);
     console.log('Password:', password);
-    navigate('/home');
+    navigate('/');
   };
 
   const handleForgotID = () => {

@@ -1,19 +1,20 @@
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import LoginPage from './components/LoginPage';
-import ForgotID from './components/ForgotID';
-import ForgotPW from './components/ForgotPW';
-import HomePage from './components/HomePage';
+import HomePage from './Components/LoginSignup/HomePage';
+import LoginPage from './Components/LoginSignup/LoginPage';
+import ForgotID from './Components/LoginSignup/ForgotID';
+import ForgotPW from './Components/LoginSignup/ForgotPW';
 
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/forgot-id" element={<ForgotID />} />
       <Route path="/forgot-password" element={<ForgotPW />} />
-      <Route path="/HomePage" element={<HomePage />} />
     </Routes>
   );
 }
