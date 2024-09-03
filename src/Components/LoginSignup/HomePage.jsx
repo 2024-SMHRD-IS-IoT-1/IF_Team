@@ -1,4 +1,5 @@
 import React from 'react';
+
 import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
 
 function HomePage() {
