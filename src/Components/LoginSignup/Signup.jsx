@@ -47,6 +47,7 @@ const SignupRequest = () => {
             </div>
             
             <div className='userid' >
+
                 <TiUserDelete size={24}/>
                 <input type="text" placeholder='  id' id = 'InputID'/>
             </div>
@@ -96,4 +97,8 @@ const SignupRequest = () => {
    
   )
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 96774bde577ffeaa3fcf0b86f8836157d9de0fd0
 export default Signup;
