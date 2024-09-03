@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
 import { Link } from 'react-router-dom';
 
+import { HiOutlineHome } from "react-icons/hi";
+
 function HomePage() {
   const navigate = useNavigate(); // useNavigate 훅 사용
 
@@ -17,7 +19,10 @@ function HomePage() {
       </header>
       <nav className="navbar">
         <ul className="menu">
-          <Link to="/" className='submenu'>Home</Link>
+          
+          
+          <Link to="/" className='submenu'>
+           <HiOutlineHome size={30}/></Link>
           <Link to="#about" className='submenu'>About</Link>
           <Link to="#services" className='submenu'>Services</Link>
           <Link to="#contact" className='submenu'>Contact</Link>

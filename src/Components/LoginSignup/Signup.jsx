@@ -45,10 +45,7 @@ const SignupRequest = () => {
                     console.log(e.target.value)
                 }} />
             </div>
-
-            
             <div className='userid' >
-
                 <TiUserDelete size={24}/>
                 <input type="text" placeholder='  id' id = 'InputID'/>
             </div>
