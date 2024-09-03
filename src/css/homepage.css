@@ -18,7 +18,7 @@
 .header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #144100;
+  color: #44c70c;
 }
 
 /* 메뉴바 스타일링 */
@@ -46,7 +46,7 @@
 }
 
 .menu .submenu:hover {
-  color: #096bd4;
+  color: #16406d;
 }
 
 /* 버튼 컨테이너 스타일링 */
@@ -64,7 +64,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #043602;
+  background-color: #10530e;
   color: rgb(255, 255, 255);
 }
 

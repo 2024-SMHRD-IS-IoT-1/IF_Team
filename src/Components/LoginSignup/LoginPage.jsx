@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/app.css';
 
+import '../../css/signup.css';
+import axios from 'axios';
 
 
-
+// 아이콘 
+import { FaUser } from "react-icons/fa";
+import { MdPassword } from "react-icons/md";
 
 function LoginPage() {
   const [id, setId] = useState('');
@@ -33,6 +37,7 @@ function LoginPage() {
       <div className='login-header'>Login</div>
       <form onSubmit={handleLogin}>
         <div className="form-group">
+        <FaUser size={24}/>
           <label htmlFor="id">ID</label>
           <input
             type="text"
