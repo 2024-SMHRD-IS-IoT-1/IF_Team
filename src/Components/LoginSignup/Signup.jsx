@@ -88,3 +88,5 @@ const handleGenderChange = (event) => {
    
   )
 }
+
+export default LoginPage;
