@@ -40,9 +40,9 @@ const handleGenderChange = (event) => {
                 <input type="text" placeholder='  name' />
             </div>
             
-            <div className='nickname'>
+            <div className='userid'>
                 <TiUserDelete size={24}/>
-                <input type="text" placeholder='  nickname' />
+                <input type="text" placeholder='  id' />
             </div>
             <div className='password'>
                 <RiLockPasswordFill size={24}/>
