@@ -4,12 +4,12 @@
 -> 비번 찾기 페이지 */
 
 /* 공통- 배경 및 container */
-body, html {
-  background : url('../assets/sleep.jpg') no-repeat;
+.body{
+  background : url("../assets/real.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   margin: 0;
-  padding: 0;
+  padding: 100px;
   height: 100%;
   font-family: Arial, sans-serif;
 }

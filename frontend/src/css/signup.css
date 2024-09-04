@@ -1,17 +1,4 @@
 
-body {
-    background : url('../assets/sleep.jpg') 
-    no-repeat;
-    background-size: cover;
-    background-position: center;
-    font-family: 'Poppins', sans-serif;
-    -webkit-font-smoothing : antialiased;
-    -moz-osz-font-smoothgin : grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;  
-}
 
 /* Container */
 .container {
