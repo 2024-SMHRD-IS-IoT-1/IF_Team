@@ -9,7 +9,7 @@ import { FaUserAlt, FaCog } from "react-icons/fa"; // 프로필 및 설정 아�
 import { MdOutlineRateReview } from "react-icons/md";
 
 
-function HomePage() {
+const HomePage = () => {
   const navigate = useNavigate(); // useNavigate 훅 사용
 
   const handleLoginClick = () => {
@@ -22,8 +22,8 @@ function HomePage() {
   return (
     <div className="homepage-container">
       <header className="homepage-header">
-          <h1>SMART PLANTERIOR</h1>
-          <h2>MOOD LIGHT</h2>
+          <h1 id='title1'>SMART PLANTERIOR</h1>
+          <h2 id='title2'>MOOD LIGHT</h2>
       </header>
       
     <div className='homepage-menu'>
@@ -37,7 +37,7 @@ function HomePage() {
       </div>
       <div className="menu-icon">
           <FaCog size={40} />
-          <div className="card-text">Settings</div>
+          <div className="menu-text">Settings</div>
         </div>
     </div>
 

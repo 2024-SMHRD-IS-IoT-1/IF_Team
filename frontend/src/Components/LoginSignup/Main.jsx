@@ -12,7 +12,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
-  navigate('/Hompage'); 
+  navigate('/homepage'); 
 };
 
 
