@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { navigate , useNavigate } from 'react-router-dom';
-import '../../css/login.css';
+import '../../css/forgotpw.css';
+import '../../App.css'
 
 
 //아이콘
@@ -32,18 +33,18 @@ function ForgotPW() {
   };
 
   return (
-    <div className="container">
-      <div className='header'>
-      <h2 className="password-reset-header">Forgot PW?</h2>
-      <div className='underline'></div>
+    <div className="forgot_pw-container">
+      <div className='forgot_pw-header'>
+      <h2 id="forgot_pw-title">Forgot PW?</h2>
+      <div id='underline'></div>
       </div>
 
       <form onSubmit={handlePasswordReset}>
-      <div className="form-group">
-        <div className='아이디'>
+      <div className="forgot_pw-form-group">
+      <div>
         <FaUser size={20}/>
           <label htmlFor="id">ID</label>
-          </div>
+         </div>
           <input
             type="text"
             id="name"
@@ -54,8 +55,7 @@ function ForgotPW() {
 
           />
         
-        
-        <div className="이름">
+        <div>
         <FaUserMinus size={20}/>
           <label htmlFor="name">Name</label>
           </div>
@@ -69,7 +69,7 @@ function ForgotPW() {
 
           />
         
-        <div className="이메일">
+       <div>
         <IoMdMail size={20}/>
           <label htmlFor="email">Email</label>
           </div>
@@ -83,9 +83,8 @@ function ForgotPW() {
 
           />
         
-        <div className="전화번호">
+        <div>
         <FaPhone size={20}/>
-
           <label htmlFor="phone">Tel</label>
           </div>
           <input
@@ -98,11 +97,11 @@ function ForgotPW() {
           />
         </div>
         <button type="submit">비밀번호 찾기</button>
-        <div className='additional-links'>
-              <div onClick={handleLogin} className='link'>
+        <div className='forgot_pw-additional-links'>
+              <div onClick={handleLogin} id='login-link'>
               로그인하기
               </div>
-              </div>
+            </div>
       </form>
     </div>
   );

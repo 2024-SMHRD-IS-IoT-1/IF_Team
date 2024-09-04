@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { HiOutlineHome } from "react-icons/hi";
 import { FaUserAlt, FaCog } from "react-icons/fa"; // 프로필 및 설정 아이콘 추가
 import { MdOutlineRateReview } from "react-icons/md";
-
+import { FaCommentDots } from "react-icons/fa";
 
 const HomePage = () => {
   const navigate = useNavigate(); // useNavigate 훅 사용
@@ -43,6 +43,10 @@ const HomePage = () => {
           <FaCog size={40} />
           <div className="menu-text">Settings</div>
         </div>
+      <div className='menu-icon'>
+        <FaCommentDots size={40}/>
+      <div className='menu-text'>comments</div>
+      </div>
     </div>
 
     {/* 로그인 버튼 */}

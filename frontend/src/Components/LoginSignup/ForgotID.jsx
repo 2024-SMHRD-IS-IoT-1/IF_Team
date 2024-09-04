@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { navigate , useNavigate } from 'react-router-dom';
-import '../../css/login.css';
+import '../../css/forgotid.css';
 import '../../App.css'
 
 // 아이콘 불러오기 
@@ -34,8 +34,8 @@ const ForgotID =()=> {
   return (
     <div className="forgot_id-container">
       <div className='forgot_id-header'>
-      <h2 className="id-reset"> Forgot ID? </h2>
-      <div className='forgot_id-underline'></div>
+      <h2 id="forgot_id-title"> Forgot ID? </h2>
+      <div id='underline'></div>
       </div>
 
       <form onSubmit={handlePasswordReset}>
@@ -87,13 +87,13 @@ const ForgotID =()=> {
         <br />
       
 
-        <button type="forgot_id-submit">아이디 찾기</button>
+        <button type="submit">아이디 찾기</button>
          {/* ID/PW 찾기 버튼  */}
          <div className='forgot_id-additional_links'>
-              <div onClick={handleLogin} className='link'>
+              <div onClick={handleLogin} id='login-link'>
               로그인하기
               </div>
-              <div onClick={handleForgotPW} className='link'>
+              <div onClick={handleForgotPW} id='pw-link'>
               비밀번호 찾기
               </div>
             </div>
