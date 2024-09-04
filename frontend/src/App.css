@@ -7,8 +7,37 @@
   font-weight: normal;
   font-style: normal;
 }
-
-
+@font-face {
+  font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+  src: url('../src/fonts/Hakgyoansim\ Chilpanjiugae\ TTF\ B.ttf') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24Meongi';
+  src: url('../src/fonts/Cafe24Meongi-B-v1.0.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24Decozoo';
+  src: url('../src/fonts/Cafe24Decozoo.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24Decoschool';
+  src: url('../src/fonts/Cafe24Decoschool.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cafe24Behappy';
+  src: url('../src/fonts/Cafe24Behappy.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+/* ======================================================== */
 .App {
   text-align: center;
 }

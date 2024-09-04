@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
+import '../../App.css'
 import { Link } from 'react-router-dom';
 
 //아이콘
