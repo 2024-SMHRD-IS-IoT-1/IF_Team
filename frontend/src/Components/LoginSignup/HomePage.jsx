@@ -19,16 +19,14 @@ function HomePage() {
     navigate('/Signup') // Signup page로 이동 
   };
 
-
-
   return (
-    <div className="container">
-      <header className="header">
+    <div className="homepage-container">
+      <header className="homepage-header">
           <h1>SMART PLANTERIOR</h1>
           <h2>MOOD LIGHT</h2>
       </header>
       
-    <div className='menues'>
+    <div className='homepage-menu'>
       <div className='menu-icon'>
         <HiOutlineHome size={40}/>
         <div className='menu-text'>Home</div>
@@ -44,8 +42,8 @@ function HomePage() {
     </div>
 
     {/* 로그인 버튼 */}
-    <div className='buttion-container'>
-      <button className='btn-login' type='button' onClick={handleLoginClick}>LOGIN</button>
+    <div className='homepage-buttion-container'>
+      <button className='homepage-btn-login' type='button' onClick={handleLoginClick}>LOGIN</button>
     </div>
   
 
