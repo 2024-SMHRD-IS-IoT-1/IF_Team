@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
 import { Link } from 'react-router-dom';
 
+//아이콘
+
 import { HiOutlineHome } from "react-icons/hi";
+import { FaUserAlt, FaCog } from "react-icons/fa"; // 프로필 및 설정 아이콘 추가
+import { MdOutlineRateReview } from "react-icons/md";
+
 
 function HomePage() {
   const navigate = useNavigate(); // useNavigate 훅 사용
@@ -14,15 +19,40 @@ function HomePage() {
   const handleSiginupClick = ()=>{
     navigate('/Signup') // Signup page로 이동 
   };
+
+
+
   return (
-    <div className="app-container">
+    <div className="container">
       <header className="header">
-        <h1>스마트 식물 무드등</h1>
+          <h1>SMART PLANTERIOR</h1>
+          <h2>MOOD LIGHT</h2>
       </header>
-      <nav className="navbar">
+      
+    <div className='menues'>
+      <div className='menu-icon'>
+        <HiOutlineHome size={40}/>
+        <div className='menu-text'>Home</div>
+      </div>
+      <div className='menu-icon'>
+        <MdOutlineRateReview size={40}/>
+        <div className='menu-text'>Info</div>
+      </div>
+      <div className="menu-icon">
+          <FaCog size={40} />
+          <div className="card-text">Settings</div>
+        </div>
+    </div>
+
+    {/* 로그인 버튼 */}
+    <div className='buttion-container'>
+      <button className='btn-login' type='button' onClick={handleLoginClick}>LOGIN</button>
+    </div>
+  
+
+
+      {/* <nav className="navbar">
         <ul className="menu">
-          
-          
           <Link to="/" className='submenu'>
            <HiOutlineHome size={30}/></Link>
           <Link to="#about" className='submenu'>About</Link>
@@ -33,7 +63,7 @@ function HomePage() {
       <div className="button-container">
         <button className="btn login-btn" type="button" onClick={handleLoginClick}>로그인</button>
         <button className="btn signup-btn" type="button" onClick={handleSiginupClick}>회원가입</button>
-      </div>
+      </div> */}
     </div>
   );
 }

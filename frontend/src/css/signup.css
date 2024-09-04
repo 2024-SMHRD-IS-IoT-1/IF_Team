@@ -1,37 +1,6 @@
 
-body {
-    background : url('../assets/sleep.jpg') 
-    no-repeat;
-    background-size: cover;
-    background-position: center;
-    font-family: 'Poppins', sans-serif;
-    -webkit-font-smoothing : antialiased;
-    -moz-osz-font-smoothgin : grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;  
-}
-
 /* Container */
-.container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 420px;
-    margin: 120px;
-    padding: 30px 40px;
-    padding-bottom: 30px;
-    margin-top: 200px;
-    border-radius: 20px;
-    background-color: #fff;
-    opacity: 0.9; /* 전체 투명도 조정 */
-    box-shadow: 0 0 20px gray;
-    /* 배경 투명하게 하기
-    background: transparent;
-    backdrop-filter: blur(50px); */
 
-}
 .container .text{
     color : #3c009d;
     font-size: 50px;

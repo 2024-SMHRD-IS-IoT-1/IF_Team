@@ -6,12 +6,14 @@ import LoginPage from './Components/LoginSignup/LoginPage';
 import SignupPage from './Components/LoginSignup/Signup';
 import ForgotID from './Components/LoginSignup/ForgotID';
 import ForgotPW from './Components/LoginSignup/ForgotPW';
+import Main from './Components/LoginSignup/Main';
 
 
 
 function App() {
   return (
     <Routes>
+      <Route path="/rr" element={<Main/>} />
       <Route path="/" element={<HomePage />} />
       <Route path="/Login" element={<LoginPage />} />
       <Route path="/Signup" element={<SignupPage />} />

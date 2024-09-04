@@ -4,31 +4,8 @@
 -> 비번 찾기 페이지 */
 
 /* 공통- 배경 및 container */
-body, html {
-  background : url('../assets/sleep.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-.container {
-  position: relative;
-  display: flex;
-  text-align: center;
-  justify-content: space-between; /* 내용을 수직으로 균등하게 분배 */
-  align-items: center; /* 수평 가운데 정렬 */
-  text-align: center;
-  width: 50vh;
-  height: 70vh;
-  margin: 100px auto; /* 자동으로 가로 중앙 정렬 */
-  padding: 30px 20px; /* 패딩 조정 */
-  border-radius: 20px;
-  background-color: #ffffffa9;
-  opacity: 0.7; /* 전체 투명도 조정 */
-  box-shadow: 0 0 20px gray;
-}
+
+
 
 /* 공통 - header */
 .header {
@@ -59,7 +36,7 @@ form {
 .form-group {
   display: flex; /* Flexbox 사용 */
   flex-direction: column; /* 수직 정렬 */
-  width: 100%; /* 부모 크기에 맞게 설정 */
+  width: 100%; /* 부모 크기에 맞게 설정  px로 변경*/
   height: 50%;
   margin: 50px 0; /* 간격 조정 */
   font-weight: bold; 
