@@ -1,22 +1,32 @@
-import React from 'react'
-import './App.css';
-const nav= useNavigate();
+import React from 'react';
+import { useNavigate, navigate } from 'react-router-dom'; // useNavigate 훅 임포트
+import '../../css/main.css'
+
+
+import { HiOutlineHome } from "react-icons/hi";
+
 const Main = () => {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+  navigate('/Hompage'); 
+  
+};
+
+
   return (
     <div className="container">
-      <header>
-        <h1>스마트 식물 무드등</h1>
+      <header className='header'>
+          <h1>Make your</h1> 
+          <h1>Mood Light</h1>
+          <hr></hr>
       </header>
-      <nav className="navbar">
-        <ul>
-          <li><a href="#home" >Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services" >Services</a></li>
-          <li><a href="#contact" >Contact</a></li>
-        </ul>
-      </nav>
+      
+      <button className='btn-home' type='button' onClick={handleHomeClick} >
+        <HiOutlineHome size={60}/>
+      </button>
     </div>
   )
-}
+};
 
-export default Main
+export default Main;
