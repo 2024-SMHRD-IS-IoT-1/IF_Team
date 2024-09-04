@@ -94,7 +94,7 @@ const ForgotID =()=> {
               로그인하기
               </div>
               <div onClick={handleForgotPW} id='pw-link'>
-              비밀번호 찾기
+              Forgot PW? 비밀번호 찾기
               </div>
             </div>
       </form>

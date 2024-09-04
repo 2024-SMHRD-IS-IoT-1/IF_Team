@@ -96,7 +96,7 @@ function ForgotPW() {
             placeholder='전화번호를 입력하세요'
           />
         </div>
-        <button type="submit">비밀번호 찾기</button>
+        <button type="submit" id='forgot-pw-btn'>비밀번호 찾기</button>
         <div className='forgot_pw-additional-links'>
               <div onClick={handleLogin} id='login-link'>
               로그인하기
