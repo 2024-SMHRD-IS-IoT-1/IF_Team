@@ -24,13 +24,10 @@ body, html {
   height: 70vh;
   margin: 100px auto; /* 자동으로 가로 중앙 정렬 */
   padding: 30px 20px; /* 패딩 조정 */
-  
- 
   border-radius: 20px;
-  background-color: #fff;
-  opacity: 0.9; /* 전체 투명도 조정 */
+  background-color: #ffffffa9;
+  opacity: 0.7; /* 전체 투명도 조정 */
   box-shadow: 0 0 20px gray;
-  
 }
 
 /* 공통 - header */
