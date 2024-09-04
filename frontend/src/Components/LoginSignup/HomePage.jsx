@@ -25,8 +25,12 @@ function HomePage() {
   return (
     <div className="container">
       <header className="header">
+ HEAD
+        <h1>스마트 플랜테리어 무드등</h1>
+=======
           <h1>SMART PLANTERIOR</h1>
           <h2>MOOD LIGHT</h2>
+
       </header>
       
     <div className='menues'>
@@ -56,7 +60,7 @@ function HomePage() {
           <Link to="/" className='submenu'>
            <HiOutlineHome size={30}/></Link>
           <Link to="/Recommend" className='submenu'>추천제품</Link>
-          <Link to="#services" className='submenu'>Services</Link>
+          <Link to="/Product" className='submenu'>제품 설명</Link>
           <Link to="#contact" className='submenu'>Contact</Link>
         </ul>
       </nav>
