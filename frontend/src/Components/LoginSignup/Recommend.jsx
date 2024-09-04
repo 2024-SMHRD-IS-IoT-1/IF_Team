@@ -19,7 +19,7 @@ const ProductRecommendation = () => {
       <ul className="menu">
           <Link to="/" className='submenu'>Home</Link>
           <Link to="/Recommend" className='submenu'>추천제품</Link>
-          <Link to="#services" className='submenu'>제품설명</Link>
+          <Link to="/Product" className='submenu'>제품 설명</Link>
           <Link to="#contact" className='submenu'>리뷰</Link>
      </ul>
       </nav>

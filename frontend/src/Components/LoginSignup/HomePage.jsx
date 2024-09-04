@@ -17,7 +17,7 @@ function HomePage() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>스마트 식물 무드등</h1>
+        <h1>스마트 플랜테리어 무드등</h1>
       </header>
       <nav className="navbar">
         <ul className="menu">
@@ -26,7 +26,7 @@ function HomePage() {
           <Link to="/" className='submenu'>
            <HiOutlineHome size={30}/></Link>
           <Link to="/Recommend" className='submenu'>추천제품</Link>
-          <Link to="#services" className='submenu'>Services</Link>
+          <Link to="/Product" className='submenu'>제품 설명</Link>
           <Link to="#contact" className='submenu'>Contact</Link>
         </ul>
       </nav>
