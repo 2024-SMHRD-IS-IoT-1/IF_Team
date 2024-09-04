@@ -1,3 +1,5 @@
+
+
 .main-container {
   text-align: center;
   margin: 0 auto;
@@ -9,7 +11,7 @@
   width: 1000px; /* 고정된 너비 설정 */
   height: 1000px; /* 고정된 높이 설정 */
   position: relative; /* 절대 위치 요소의 기준이 되도록 설정 */
-  
+
 }
 
 .main-header {
@@ -18,7 +20,8 @@
 }
 
 .main-title {
-  font-size: 80px; /* 텍스트 크기를 80px로 설정 */
+  font-family:'HSGooltokki' ;
+  font-size: 100px; /* 텍스트 크기를 80px로 설정 */
   margin: 30px; /* 텍스트 주위에 30px의 여백 설정 */
   background: linear-gradient(to right, #001f4d, #002b80, #6e009f, #0d006b); /* 오른쪽으로 밤하늘 느낌의 그라데이션 색상 적용 */
   background-clip: text;
@@ -29,6 +32,7 @@
   background-position: center; /* 그라데이션을 중앙에 배치 */
   text-align: center; /* 텍스트를 가운데 정렬 */
   max-width: 800px; /* 제목의 최대 너비를 고정 */
+  letter-spacing: 7px;  /*글자간격*/
 }
 
 #line {
@@ -50,6 +54,7 @@
   left: 50%;
   transform: translateX(-50%); /* 버튼의 중앙 정렬을 위한 이동 */
   z-index: 1000; /* 버튼이 다른 요소보다 위에 보이도록 설정 */
+  letter-spacing: 3px;  /*글자간격*/
 }
 
 .main-btnhome:hover {

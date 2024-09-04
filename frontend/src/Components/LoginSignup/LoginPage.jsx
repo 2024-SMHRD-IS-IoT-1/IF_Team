@@ -9,7 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill} from "react-icons/ri";
 
 
-function LoginPage() {
+const LoginPage=()=> {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -30,7 +30,6 @@ function LoginPage() {
   };
 
   return (
-<div class="body">
     <div className="container" >
         <div className='header'>
          <h2 className='login-header'>Login </h2>
@@ -86,7 +85,7 @@ function LoginPage() {
        </form>
        
      </div>
-</div>
+
      
     
   );

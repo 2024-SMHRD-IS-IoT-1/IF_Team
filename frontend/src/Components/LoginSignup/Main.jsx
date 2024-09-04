@@ -1,16 +1,14 @@
 // 웹 첫 시작 페이지
-
-
 import React from 'react';
 import { useNavigate, navigate } from 'react-router-dom'; // useNavigate 훅 임포트
-import '../../css/main.css'
-//아이콘
-import { HiOutlineHome } from "react-icons/hi";
-import { LuMoonStar } from "react-icons/lu";
+import '../../css/main.css';
+import '../../App.css';
+
+
 
 const Main = () => {
   const navigate = useNavigate();
-
+ 
   const handleHomeClick = () => {
   navigate('/homepage'); 
 };
@@ -21,7 +19,6 @@ const Main = () => {
       <header className='main-header'>
           <h1 className='main-title'>Make your</h1> 
           <h1 className="main-title">Mood Light
-            <LuMoonStar size={30}/>
           </h1>
           <hr id='line'></hr>
       </header>
