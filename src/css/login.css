@@ -36,7 +36,7 @@ body, html {
   font-size: 30px;
   font-weight: bold;
   letter-spacing: 15px;
-  top: 30px;
+  top: 25px;
   margin-bottom: 10px; /* underline과의 간격 좁히기 */
 }
 .underline{
@@ -52,7 +52,7 @@ form {
   display: flex;
   flex-direction: column; /* 수직으로 정렬 */
   align-items: center; /* 수평 가운데 정렬 */
-  width: 100%; /* 부모 크기에 맞게 설정 */
+  width: 80%; /* 부모 크기에 맞게 설정 */
   flex-grow: 1; /* 가능한 공간을 채우기 위해 확장 */
   justify-content: center; /* 수직 중앙 정렬 */
 } 
@@ -60,7 +60,8 @@ form {
   display: flex; /* Flexbox 사용 */
   flex-direction: column; /* 수직 정렬 */
   width: 100%; /* 부모 크기에 맞게 설정 */
-  margin: 20px 0; /* 간격 조정 */
+  height: 50%;
+  margin: 50px 0; /* 간격 조정 */
   font-weight: bold; 
 }
 .form-group div{
@@ -78,7 +79,7 @@ form {
   margin-left: 10px; /* 아이콘과의 간격 조정 */
   font-size: 16px;
   padding: 10px 20px;
-  margin-bottom: 40px; /* input 간의 간격 확장 */
+  margin-bottom: 10px; /* input 간의 간격 확장 */
 }
 
 /* button */
@@ -94,7 +95,7 @@ button[type="submit"] {
     font-size: 20px;
     font-weight: bold;
     position: absolute; /* 위치를 절대값으로 설정 */
-    bottom: 100px; /* container 아래쪽에서 20px 위로 위치 */
+    bottom: 60px; /* container 아래쪽에서 20px 위로 위치 */
     left: 50%; /* 수평 중앙 정렬 */
     transform: translateX(-50%); /* 수평 중앙 정렬 */
 }
@@ -111,7 +112,7 @@ button[type="submit"]:hover {
   margin-top: 50px;
   font-size: 13px;
   position: absolute; /* 위치를 절대값으로 설정 */
-  bottom: 70px; /* 버튼 바로 위에 위치 */
+  bottom: 30px; /* 버튼 바로 위에 위치 */
   left: 50%; /* 수평 중앙 정렬 */
   transform: translateX(-50%); /* 수평 중앙 정렬 */
   display: flex;
