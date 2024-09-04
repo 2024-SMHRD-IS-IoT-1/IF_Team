@@ -1,99 +1,67 @@
-import React, {useState, useEffect} from 'react';
-import '../../css/signup.css';
+import React, { useState } from 'react';
 import axios from 'axios';
 
+function Signup() {
+  const [formData, setFormData] = useState({
+    user_id: '',
+    user_pw: '',
+    user_name: '',
+    user_email: '',
+    joined_at: ''
+  });
 
-// icon 이미지
-import { IoIosMail} from "react-icons/io";
-import { RiLockPasswordFill} from "react-icons/ri";
-import { FaUser } from "react-icons/fa";
-import { FaBirthdayCake } from "react-icons/fa";
-import { MdPassword } from "react-icons/md";
-//import { ImManWoman } from "react-icons/im";
-import { TiUserDelete } from "react-icons/ti";
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-
-export const Signup = () => {
-    const [action, setAction] = useState("Sign UP");
-    const [gender, setGender] = useState('');
-    const [userName, setUserName] = useState("");
-      
-// 성별 radio 박스
-const handleGenderChange = (event) => {
-  setGender(event.target.value);
-};
-
-const SignupRequest = () => {
-    axios.post("url/signup",{userName: userName})
-}
-
+    axios.post('http://localhost:5000/user/signup', formData)
+      .then(response => {
+        console.log('Signup successful:', response.data);
+      })
+      .catch(error => {
+        console.error('There was an error signing up!', error);
+      });
+  };
 
   return (
-    <div className='container'>
-        <div className='header'>
-            <div className='text'>Sign Up</div>
-            <div className='underline'></div>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className='input-container'>
-            <div className='name'>
-                <FaUser size={24}/>
-                <input type="text" placeholder='  name' id = 'InputName' onChange={(e) => {
-                    console.log(e.target.value)
-                }} />
-            </div>
-            <div className='userid' >
-                <TiUserDelete size={24}/>
-                <input type="text" placeholder='  id' id = 'InputID'/>
-            </div>
-            <div className='password'>
-                <RiLockPasswordFill size={24}/>
-                <input type="password" placeholder='  password' id='InputPW' />
-            </div>
-            <div className='passwordcheck'>
-                <MdPassword size={24}/>
-                <input type="password" placeholder='  password check' />
-            </div>
-            <div className='inputs'>
-                <IoIosMail size={24} />
-                <input type="email" placeholder='  email' id = 'InputEmail'/>
-            </div>
-            <div className='birth'>
-                <FaBirthdayCake size={24}/>
-                <input type="date" placeholder='  bithday' id ='Inputbirth'/>
-            </div>
-            {/*<div className='gender'>
-                < ImManWoman size={24}/>
-                <label className='male_female'>
-                   <input
-                      type='radio'
-                      value='male'
-                      checked={gender === 'male'}
-                      onChange={handleGenderChange}
-                      id ='Inputmale'
-                    />남자
-                </label>
-                <label>
-                  <input
-                   type='radio'
-                   value='female'
-                   checked={gender === 'female'}
-                   onChange={handleGenderChange}
-                  />여자
-                </label>
-            </div>*/}
-        </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="user_id"
+        value={formData.user_id}
+        onChange={handleChange}
 
+      />
+      <input
+        type="password"
+        name="user_pw"
+        value={formData.user_pw}
+        onChange={handleChange}
 
-        <div className='submit-container'>
-            <button className="submit" onClick={()=>{setAction("Sign Up")}}>Sign UP</button> 
-        </div>
-    </div>
-   
-  )
+      />
+      <input
+        type = "text"
+        name='user_name'
+        value={formData.user_name}
+        onChange ={handleChange}
+      />
+      <input
+        type="email"
+        name="user_email"
+        value={formData.user_email}
+        onChange={handleChange}
+ 
+      />
+        
+      <button type="submit">Sign Up</button>
+    </form>
+  );
 }
 
 export default Signup;

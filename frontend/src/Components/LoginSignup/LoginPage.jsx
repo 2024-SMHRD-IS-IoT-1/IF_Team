@@ -3,22 +3,36 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/login.css';
 import '../../css/signup.css';
-
+import axios from 'axios';
 // 아이콘 
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill} from "react-icons/ri";
 
 
 function LoginPage() {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+  // const [id, setId] = useState('');
+  // const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    user_id: '',
+    user_pw: ''
+  });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('ID:', id);
-    console.log('Password:', password);
-    navigate('/');
+    axios.post('http://localhost:5000/user/signup', formData)
+      .then(response => {
+        console.log('Login successful:', response.data);
+      })
+      .catch(error => {
+        console.error('There was an error Login!', error);
+      });
   };
 
   const handleForgotID = () => {
@@ -43,10 +57,8 @@ function LoginPage() {
                 </div>
                 <input
                   type="text"
-                  id="id"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
-                  required
+                  value={formData.user_id}
+                  onChange={handleChange}
                   placeholder='아이디를 입력하세요'
                  />
               <div className='PW'>
@@ -55,10 +67,8 @@ function LoginPage() {
                 </div>
                 <input
                   type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
+                  value={formData.user_pw}
+                  onChange={handleChange}
                   placeholder='비밀번호를 입력하세요'
                  /> 
            </div>
