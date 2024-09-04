@@ -4,10 +4,7 @@
 -> 비번 찾기 페이지 */
 
 /* 공통- 배경 및 container */
-<<<<<<< HEAD
 
-
-=======
 .body{
   background : url("../assets/real.jpg") no-repeat;
   background-size: cover;
@@ -36,7 +33,6 @@
   box-shadow: 0 0 20px gray;
   
 }
->>>>>>> da6e328fe4a40f24545cfc3670a185982547ac4d
 
 /* 공통 - header */
 .header {
