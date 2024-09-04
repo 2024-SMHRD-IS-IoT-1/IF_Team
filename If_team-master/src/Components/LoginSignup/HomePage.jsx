@@ -10,6 +10,10 @@ function HomePage() {
     navigate('/Login'); // LoginPage로 이동
   };
 
+  const handleSignupClick = () => {
+    navigate('/Signup'); // LoginPage로 이동
+  };
+
   return (
     <div className="app-container">
       <header className="header">
@@ -25,7 +29,7 @@ function HomePage() {
       </nav>
       <div className="button-container">
         <button className="btn login-btn" type="button" onClick={handleLoginClick}>로그인</button>
-        <button className="btn signup-btn">회원가입</button>
+        <button className="btn signup-btn" type="button" onClick={handleSignupClick}>회원가입</button>
       </div>
     </div>
   );
