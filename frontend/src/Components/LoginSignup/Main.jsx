@@ -17,7 +17,7 @@ const Main = () => {
   return (
     <div className="container">
       <header className='header'>
-          <h1>Make your</h1> 
+          <h1 className='title'>Make your</h1> 
           <h1>Mood Light</h1>
           <hr></hr>
       </header>
