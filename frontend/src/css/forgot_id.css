@@ -1,0 +1,95 @@
+
+.header {
+    color: #3c009d;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 15px;
+    top: 25px;
+    margin-bottom: 10px; /* underline과의 간격 좁히기 */
+  }
+  .underline{
+    width: 80%; /* 줄 길이 조정 */
+    height: 7px;
+    background: #3c009d;
+    border-radius: 10px;
+    margin: 5px auto; /* margin으로 위아래 간격 조정 */
+  }
+  
+  /*form */
+  form {
+    display: flex;
+    flex-direction: column; /* 수직으로 정렬 */
+    align-items: center; /* 수평 가운데 정렬 */
+    width: 80%; /* 부모 크기에 맞게 설정 */
+    flex-grow: 1; /* 가능한 공간을 채우기 위해 확장 */
+    justify-content: center; /* 수직 중앙 정렬 */
+  } 
+  .form-group {
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 수직 정렬 */
+    width: 100%; /* 부모 크기에 맞게 설정  px로 변경*/
+    height: 50%;
+    margin: 50px 0; /* 간격 조정 */
+    font-weight: bold; 
+  }
+  .form-group div{
+    display: flex; /* 수평으로 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    margin-bottom: 20px; /* 아래 여백 추가 */
+  }
+  .form-group input{
+    width: calc(100% - 40px); /* 아이콘 공간을 제외한 너비 */
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid #4b376bcc;
+    border-radius: 50px;
+    margin-left: 10px; /* 아이콘과의 간격 조정 */
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-bottom: 10px; /* input 간의 간격 확장 */
+  }
+  
+  /* button */
+  button[type="submit"] {
+      width: 220px;
+      height: 60px;
+      background-color: #4c00b4;
+      color: white;
+      border: none;
+      outline: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      position: absolute; /* 위치를 절대값으로 설정 */
+      bottom: 60px; /* container 아래쪽에서 20px 위로 위치 */
+      left: 50%; /* 수평 중앙 정렬 */
+      transform: translateX(-50%); /* 수평 중앙 정렬 */
+  }
+  button[type="submit"]:hover {
+    background-color: #6a00ff;
+  }
+  
+  /* Login - Forgot ID & PW */
+  .additional-links {
+    text-decoration: none;
+    cursor: pointer;
+    color: gray;
+    opacity: 0.9;
+    margin-top: 50px;
+    font-size: 13px;
+    position: absolute; /* 위치를 절대값으로 설정 */
+    bottom: 30px; /* 버튼 바로 위에 위치 */
+    left: 50%; /* 수평 중앙 정렬 */
+    transform: translateX(-50%); /* 수평 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+  }
+  .additional-links :hover{
+    color: #6a00ff;
+  }
+  .link{
+    margin: 0 20px; /* 오른쪽 여백 추가 */
+  }
+  

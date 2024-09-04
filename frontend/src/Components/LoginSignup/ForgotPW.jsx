@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { navigate , useNavigate } from 'react-router-dom';
 import '../../css/login.css';
 
 
@@ -14,6 +15,11 @@ function ForgotPW() {
   const [name, setName] = useState('');
   const [id, serId] = useState('');
 
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate('/Login');
+  }
+  
   const handlePasswordReset = (e) => {
     e.preventDefault();
     // 비밀번호 재설정 로직을 여기에 추가합니다 (예: API 요청)
@@ -92,6 +98,11 @@ function ForgotPW() {
           />
         </div>
         <button type="submit">비밀번호 찾기</button>
+        <div className='additional-links'>
+              <div onClick={handleLogin} className='link'>
+              로그인하기
+              </div>
+              </div>
       </form>
     </div>
   );
