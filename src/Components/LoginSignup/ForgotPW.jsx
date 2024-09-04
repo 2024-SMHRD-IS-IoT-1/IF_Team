@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import '../../css/app.css';
+import '../../css/login.css';
+
+
+//아이콘
+import { FaUser } from "react-icons/fa";
+import { FaUserMinus } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+import { FaPhone } from "react-icons/fa6";
 
 function ForgotPW() {
   const [email, setEmail] = useState('');
@@ -19,47 +26,69 @@ function ForgotPW() {
   };
 
   return (
-    <div className="password-reset-container">
-      <h2 className="password-reset-header">비밀번호 찾기</h2>
+    <div className="container">
+      <div className='header'>
+      <h2 className="password-reset-header">Forgot PW?</h2>
+      <div className='underline'></div>
+      </div>
+
       <form onSubmit={handlePasswordReset}>
       <div className="form-group">
-          <label htmlFor="id">아이디</label>
+        <div className='아이디'>
+        <FaUser size={20}/>
+          <label htmlFor="id">ID</label>
+          </div>
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            placeholder='아이디를 입력하세요'
+
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">이름</label>
+        
+        
+        <div className="이름">
+        <FaUserMinus size={20}/>
+          <label htmlFor="name">Name</label>
+          </div>
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            placeholder='이름을 입력하세요'
+
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">이메일</label>
+        
+        <div className="이메일">
+        <IoMdMail size={20}/>
+          <label htmlFor="email">Email</label>
+          </div>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder='이메일을 입력하세요'
+
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">전화번호</label>
+        
+        <div className="전화번호">
+        <FaPhone size={20}/>
+
+          <label htmlFor="phone">Tel</label>
+          </div>
           <input
             type="tel"
             id="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
+            placeholder='전화번호를 입력하세요'
           />
         </div>
         <button type="submit">비밀번호 찾기</button>

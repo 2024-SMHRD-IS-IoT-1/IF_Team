@@ -12,6 +12,8 @@ const FeedbackPage = () => {
       <h1>Clients Says</h1>
     </div>
 
+    
+
   )
 }
 

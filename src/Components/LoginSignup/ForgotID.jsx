@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import '../../css/app.css';
+import '../../css/login.css';
+
+
+// 아이콘 불러오기 
+import { FaUserMinus } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+import { FaPhone } from "react-icons/fa6";
+
 
 function ForgotPW() {
   const [email, setEmail] = useState('');
@@ -16,39 +23,61 @@ function ForgotPW() {
   };
 
   return (
-    <div className="password-reset-container">
-      <h2 className="password-reset-header">비밀번호 찾기</h2>
+    <div className="container">
+      <div className='header'>
+      <h2 className="id-reset-header"> Forgot ID? </h2>
+      <div className='underline'></div>
+      </div>
+
       <form onSubmit={handlePasswordReset}>
         <div className="form-group">
-          <label htmlFor="name">이름</label>
+          <div>
+          <FaUserMinus size={20}/>
+          <label htmlFor="name">Name</label>
+          </div>
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+             placeholder='이름을 입력하세요'
           />
+        <div>
+        <IoMdMail size={20}/>
+          <label htmlFor="email">Email</label>
         </div>
-        <div className="form-group">
-          <label htmlFor="email">이메일</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+             placeholder='이메일을 입력하세요'
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">전화번호</label>
+          
+          <div>
+        <FaPhone size={20}/>
+          <label htmlFor="phone">Tel</label>
+          </div>
+         
           <input
             type="tel"
             id="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
-          />
+            placeholder='전화번호를 입력하세요'
+           />
         </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      
+
         <button type="submit">아이디 찾기</button>
       </form>
     </div>

@@ -44,7 +44,7 @@ body {
 
 
 /* header */
-.header .text {
+/* .header .text {
     display: flex;
     flex-direction: column;
     gap : 1px;
@@ -52,7 +52,7 @@ body {
     margin-top: 30px;
     text-align: center ;
     margin  : 0 auto;
-}
+} */
 .header .underline{
     display: flex;
     flex-direction: column;
@@ -102,12 +102,14 @@ body {
     justify-content: center;
     align-items: center;
     width: 220px;
-    height: 59px;
+    height: 60px;
     color: #fff;
     background-color: #4c00b4;
     border-radius: 50px;
-    font-size: 19px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: bold;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
