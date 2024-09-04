@@ -1,4 +1,4 @@
-.container {
+.main-container {
     text-align: center;
     margin: 0 auto;
     background-color: #ffffff;
@@ -8,42 +8,18 @@
     align-items: center;
   }
   
-  .header {
+  .main-header {
     margin-bottom : 100px;
   }
-  
-  h1 {
+  .main-title {
     font-size: 100px;
     margin: 40px;
-    color: #6c11ff; /* 원하는 색상으로 변경 가능 */
+    color: #b183fc; /* 원하는 색상으로 변경 가능 */
   }
-  
   .navbar {
     display: flex;
     justify-content: center;
     background-color: #333;
   }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  .navbar li {
-    float: left;
-  }
-  
-  .navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-  }
-  
-  .navbar li a:hover {
-    background-color: #111;
-  }
+ 
   
