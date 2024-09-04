@@ -5,34 +5,6 @@
 
 /* 공통- 배경 및 container */
 
-.body{
-  background : url("../assets/real.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 100px;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-.container {
-  position: relative;
-  display: flex;
-  text-align: center;
-  justify-content: space-between; /* 내용을 수직으로 균등하게 분배 */
-  align-items: center; /* 수평 가운데 정렬 */
-  text-align: center;
-  width: 50vh;
-  height: 70vh;
-  margin: 100px auto; /* 자동으로 가로 중앙 정렬 */
-  padding: 30px 20px; /* 패딩 조정 */
-  
- 
-  border-radius: 20px;
-  background-color: #fff;
-  opacity: 0.9; /* 전체 투명도 조정 */
-  box-shadow: 0 0 20px gray;
-  
-}
 
 /* 공통 - header */
 .header {
