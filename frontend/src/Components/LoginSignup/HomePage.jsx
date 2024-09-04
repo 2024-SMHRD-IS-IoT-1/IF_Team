@@ -4,7 +4,6 @@ import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일�
 import { Link } from 'react-router-dom';
 
 //아이콘
-
 import { HiOutlineHome } from "react-icons/hi";
 import { FaUserAlt, FaCog } from "react-icons/fa"; // 프로필 및 설정 아이콘 추가
 import { MdOutlineRateReview } from "react-icons/md";
@@ -25,12 +24,8 @@ function HomePage() {
   return (
     <div className="container">
       <header className="header">
- HEAD
-        <h1>스마트 플랜테리어 무드등</h1>
-=======
           <h1>SMART PLANTERIOR</h1>
           <h2>MOOD LIGHT</h2>
-
       </header>
       
     <div className='menues'>

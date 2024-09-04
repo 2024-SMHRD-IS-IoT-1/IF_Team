@@ -6,7 +6,7 @@ import { useNavigate, navigate } from 'react-router-dom'; // useNavigate 훅 임
 import '../../css/main.css'
 //아이콘
 import { HiOutlineHome } from "react-icons/hi";
-
+import { LuMoonStar } from "react-icons/lu";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -20,12 +20,14 @@ const Main = () => {
     <div className="main-container">
       <header className='main-header'>
           <h1 className='main-title'>Make your</h1> 
-          <h1 className="main-title">Mood Light</h1>
-          <hr></hr>
+          <h1 className="main-title">Mood Light
+            <LuMoonStar size={30}/>
+          </h1>
+          <hr id='line'></hr>
       </header>
       
       <button className='main-btnhome' type='button' onClick={handleHomeClick} >
-        <HiOutlineHome size={60}/>
+        <h1>get start!</h1>
       </button>
     </div>
   )
