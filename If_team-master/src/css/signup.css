@@ -1,10 +1,37 @@
 
-<<<<<<< HEAD
-=======
+body {
+    background : url('../assets/sleep.jpg') 
+    no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing : antialiased;
+    -moz-osz-font-smoothgin : grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  
+}
 
->>>>>>> da6e328fe4a40f24545cfc3670a185982547ac4d
 /* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 420px;
+    margin: 120px;
+    padding: 30px 40px;
+    padding-bottom: 30px;
+    margin-top: 200px;
+    border-radius: 20px;
+    background-color: #fff;
+    opacity: 0.9; /* 전체 투명도 조정 */
+    box-shadow: 0 0 20px gray;
+    /* 배경 투명하게 하기
+    background: transparent;
+    backdrop-filter: blur(50px); */
 
+}
 .container .text{
     color : #3c009d;
     font-size: 50px;
@@ -17,7 +44,7 @@
 
 
 /* header */
-/* .header .text {
+.header .text {
     display: flex;
     flex-direction: column;
     gap : 1px;
@@ -25,7 +52,7 @@
     margin-top: 30px;
     text-align: center ;
     margin  : 0 auto;
-} */
+}
 .header .underline{
     display: flex;
     flex-direction: column;
@@ -75,14 +102,12 @@
     justify-content: center;
     align-items: center;
     width: 220px;
-    height: 60px;
+    height: 59px;
     color: #fff;
     background-color: #4c00b4;
     border-radius: 50px;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 19px;
+    font-weight: 700;
     cursor: pointer;
-    border: none;
-    outline: none;
 }
 

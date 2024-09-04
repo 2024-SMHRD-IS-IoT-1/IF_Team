@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/login.css';
-import '../../css/signup.css';
+
 
 // 아이콘 
 import { FaUser } from "react-icons/fa";
@@ -30,7 +30,8 @@ function LoginPage() {
   };
 
   return (
-    <div className="container">
+<div class="body">
+    <div className="container" >
         <div className='header'>
          <h2 className='login-header'>Login </h2>
          <div className='underline'></div>
@@ -62,6 +63,7 @@ function LoginPage() {
                   placeholder='비밀번호를 입력하세요'
                  /> 
            </div>
+          
 
            <br></br>
            <br></br>
@@ -84,6 +86,8 @@ function LoginPage() {
        </form>
        
      </div>
+</div>
+     
     
   );
 }

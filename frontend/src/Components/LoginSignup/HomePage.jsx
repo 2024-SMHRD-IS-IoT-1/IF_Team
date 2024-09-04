@@ -55,7 +55,7 @@ function HomePage() {
         <ul className="menu">
           <Link to="/" className='submenu'>
            <HiOutlineHome size={30}/></Link>
-          <Link to="#about" className='submenu'>About</Link>
+          <Link to="/Recommend" className='submenu'>추천제품</Link>
           <Link to="#services" className='submenu'>Services</Link>
           <Link to="#contact" className='submenu'>Contact</Link>
         </ul>
