@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { navigate , useNavigate } from 'react-router-dom';
-import '../../css/forgotid.css';
-import '../../App.css'
+import '../../css/login.css';
+
 
 // 아이콘 불러오기 
 import { FaUserMinus } from "react-icons/fa";
@@ -9,19 +8,11 @@ import { IoMdMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
 
 
-const ForgotID =()=> {
+function ForgotPW() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
 
-  const navigate = useNavigate();
-  const handleLogin = () => {
-    navigate('/Login');
-  }
-  const handleForgotPW = () => {
-    navigate('/forgot-password');
-  }
-  
   const handlePasswordReset = (e) => {
     e.preventDefault();
     // 비밀번호 재설정 로직을 여기에 추가합니다 (예: API 요청)
@@ -32,14 +23,14 @@ const ForgotID =()=> {
   };
 
   return (
-    <div className="forgot_id-container">
-      <div className='forgot_id-header'>
-      <h2 id="forgot_id-title"> Forgot ID? </h2>
-      <div id='underline'></div>
+    <div className="container">
+      <div className='header'>
+      <h2 className="id-reset-header"> Forgot ID? </h2>
+      <div className='underline'></div>
       </div>
 
       <form onSubmit={handlePasswordReset}>
-        <div className="forgot_id-formgroup">
+        <div className="form-group">
           <div>
           <FaUserMinus size={20}/>
           <label htmlFor="name">Name</label>
@@ -88,18 +79,9 @@ const ForgotID =()=> {
       
 
         <button type="submit">아이디 찾기</button>
-         {/* ID/PW 찾기 버튼  */}
-         <div className='forgot_id-additional_links'>
-              <div onClick={handleLogin} id='login-link'>
-              로그인하기
-              </div>
-              <div onClick={handleForgotPW} id='pw-link'>
-              Forgot PW? 비밀번호 찾기
-              </div>
-            </div>
       </form>
     </div>
   );
 }
 
-export default ForgotID;
+export default ForgotPW;

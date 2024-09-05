@@ -2,55 +2,34 @@ const express = require("express");
 const router = express.Router();
 const conn = require("../config/db");
 const nodemailer = require('nodemailer')
-const path = require('path')
+// singup 기능 라우터 
+router.post("/signup",(req,res)=>{
 
-//메인페이지 경로 설정
-/*router.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'..','..','frontend','build'))
-})*/
+    console.log(req.body)
+    let {InputID, InputPW, InputName, InputEmail, InputBirth} = req.body
+    let sql = "insert into tb_user(user_id,user_pw,user_name,user_email,joined_at) values (?,?,?,?,?)"
 
-//axios로 받아온 데이터확인 
-router.post('/getData',(req,res)=> {
-    console.log('get data router',req.body);
-    res.json({auth : 'user'});
+    conn.query(sql,[InputID, InputPW, InputName, InputEmail, InputBirth], (err, rows)=>{
+        console.log('rows',rows)
+        try{
+        if (rows){
+            res.json({message : "회원가입 성공"})
+        }else{
+            res.json({message:"회원가입 실패"})
+        }}
+        catch(err){
+            console.log(err);
+        }
+    })
 })
 
-// singup 기능 라우터 
-router.post("/Signup", (req, res) => {
-    console.log(req.body);
-
-    let { user_id,user_pw,user_name,joined_at,user_email} = req.body;
-
-    // SQL 쿼리 작성
-    let sql = "INSERT INTO tb_user (user_id,user_pw,user_name,joined_at,user_email) VALUES (?, ?, ?, NOW(),?)";
-
-    conn.query(sql, [user_id,user_pw,user_name,joined_at,user_email], (err, result) => {
-        if (err) {
-            console.error('회원가입 중 오류 발생:', err);
-            return res.status(500).json({ message: "회원가입 실패", error: err.message });
-        }
-        console.log('Result:', result);
-
-        if (result.affectedRows > 0) {
-            res.json({ message: "회원가입 성공" });
-        } else {
-            res.json({ message: "회원가입 실패" });
-        }
-    });
-});
-
 // 로그인 기능담당 라우터
-router.post("/Login",(req,res)=>{
+router.post("/login",(req,res)=>{
     console.log('user login router', req.body)
     let {user_id,user_pw} = req.body
 
     let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?"
-    conn.query(sql,[user_id,user_pw],(err,rows)=>{
-        if (err) {
-            console.error('로그인 중 오류 발생:', err);
-            return res.status(500).json({ message: "로그인 실패", error: err.message });
-        }
-        console.log("Result",result)
+    conn.sql(sql,[user_id,user_pw],(err,rows)=>{
         try{
         if(rows.length>0){
             res.json({message: "로그인 성공"})

@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 // import App from '../src/Components/LoginSignup/HomePage';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Router} from 'react-router-dom'; // BrowserRouter 임포트
+import { BrowserRouter } from 'react-router-dom'; // BrowserRouter 임포트
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  < BrowserRouter>
+  <BrowserRouter>
     <App />
-  </ BrowserRouter>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

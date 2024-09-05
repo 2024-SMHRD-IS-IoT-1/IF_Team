@@ -1,5 +1,5 @@
 /* 전체 화면 레이아웃 */
-.homepage-container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,40 +11,38 @@
 }
 
 /* 헤더 스타일링 */
-.homepage-header {
+.header {
   margin-top: 40px;
 }
 
-#title1 {
+.header h1 {
   margin: 0;
-  font-size: 80px;
-  font-family:'HSGooltokki' ;
-  color: #b7d1eb; /* 파란색 포인트 컬러 */
-  line-height: 1; /* 줄 간격 조정 */
+  font-size: 28px;
+  color: #3b82f6; /* 파란색 포인트 컬러 */
+  line-height: 1.2; /* 줄 간격 조정 */
 }
 
-#title2 {
+.header h2 {
   margin: 0;
-  font-size: 70px;
-  font-family:'HSGooltokki' ;
+  font-size: 18px;
   color: #3b82f6; /* 파란색 포인트 컬러 */
-  line-height: 1.5; /* 줄 간격 조정 */
+  line-height: 1.2; /* 줄 간격 조정 */
 }
 
 /* 메인 카드 그리드 스타일 */
-.homepage-menu {
+.menues {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin: 70px 0;
+  gap: 20px;
+  margin: 30px 0;
 }
 
 /* 카드 스타일 */
 .menu-icon {
-  background-color: #e5e5e5; /* 흰색 배경 */
+  background-color: #ffffff; /* 흰색 배경 */
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.604); /* 더 연한 그림자 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 더 연한 그림자 */
   text-align: center;
   width: 80px; /* 카드 크기 지정 */
   height: 100px;
@@ -54,62 +52,37 @@
   justify-content: center;
   transition: transform 0.2s;
 }
-.menu-icon:hover {
+
+.menu-cion:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(136, 136, 136, 0.579); /* 호버 시 더 깊은 그림자 */
-  background-color: #f0ff7e;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* 호버 시 더 깊은 그림자 */
 }
+
 .menu-text {
   margin-top: 10px;
-  font-size: 20px;
-  font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+  font-size: 14px;
   color: #1f2937; /* 어두운 회색 텍스트 */
 }
 
-/* 버튼 스타일 */
-.homepage-buttion-container {
+/* 메인 버튼 스타일 */
+.button-container {
   margin-bottom: 40px;
 }
-.homepage-btn-login {
-  width: 250px; /* 버튼 너비를 고정 설정 */
-  height: 70px; /* 버튼 높이를 고정 설정 */
-  background: #000000a5; /* 파란색 포인트 컬러 */
+
+.btn-login {
+  background: #3b82f6; /* 파란색 포인트 컬러 */
   color: white;
-  border: none; /* 버튼에 테두리를 없앰 */
-  font-size: 30px; /* 버튼 텍스트의 크기를 18px로 설정 */
-  font-weight: bold;
-  cursor: pointer; /* 버튼 위에 마우스를 올리면 커서가 손가락 모양으로 변경됨 */
   padding: 15px 30px;
-  border-radius: 25px; /* 버튼 모서리를 25px로 둥글게 만듦 */
-  position: absolute; /* 부모 컨테이너를 기준으로 절대 위치 지정 */
-  top: 730px; /* 제목에서부터 고정된 거리 설정 */
-  left: 50%;
-  transform: translateX(-50%); /* 버튼의 중앙 정렬을 위한 이동 */
-  z-index: 1000; /* 버튼이 다른 요소보다 위에 보이도록 설정 */
-  letter-spacing: 10px;  /*글자간격*/
-  font-family: 'Cafe24Behappy';
-  /* transition: background 0.3s; */
-  
-}
-.homepage-btn-login:hover {
-  background: #3b82f6; /* 호버 시 어두운 파란색 */
-}
-.homepage-Loginlink {
-  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  font-size: 1em;
   cursor: pointer;
-  color: gray;
-  opacity: 0.9;
-  margin-top: 50px;
-  font-family: 'Cafe24Decoschool';
-  font-size: 16px;
-  position: absolute; /* 위치를 절대값으로 설정 */
-  top: 780px;; /* 버튼 바로 위에 위치 */
-  left: 50%; /* 수평 중앙 정렬 */
-  transform: translateX(-50%); /* 수평 중앙 정렬 */
-  display: flex;
-  justify-content: center;
+  transition: background 0.3s;
+  width: 150px; /* 버튼 크기 지정 */
 }
-.homepage-Loginlink:hover{
- color: blue;
+
+.main-btn:hover {
+  background: #2563eb; /* 호버 시 어두운 파란색 */
 }
+
 
