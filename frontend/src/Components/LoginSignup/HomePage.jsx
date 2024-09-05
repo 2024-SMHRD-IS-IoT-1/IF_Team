@@ -62,8 +62,8 @@ const HomePage = () => {
           <div className="menu-text" onClick={handleSettingsClick}>Settings</div>
         </div>
       <div className='menu-icon'>
-        <FaCommentDots size={40} onClick={handleSettingsClick}/>
-      <div className='menu-text'onClick={handleSettingsClick}>comments</div>
+        <FaCommentDots size={40} onClick={handleCommentsClick}/>
+      <div className='menu-text'onClick={handleCommentsClick}>comments</div>
       </div>
 
     {/* 로그인 버튼 */}

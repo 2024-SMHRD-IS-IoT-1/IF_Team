@@ -2,7 +2,7 @@ import React, {useState, useEffect}from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 
-import '../../css/feedbackpage.css';
+import '../../css/feedbackmain.css';
 import '../../App.css';
 
 function FeedbackMain() {
