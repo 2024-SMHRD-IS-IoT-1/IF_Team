@@ -1,17 +1,22 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/login.css';
 import '../../css/signup.css';
 import axios from 'axios';
+import '../../App.css'
+
+
 // 아이콘 
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill} from "react-icons/ri";
 
 
+
 function LoginPage() {
-  // const [id, setId] = useState('');
-  // const [password, setPassword] = useState('');
+ const [id, setId] = useState('');
+ const [password, setPassword] = useState('');
+
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -44,14 +49,14 @@ function LoginPage() {
   };
 
   return (
-    <div className="container">
-        <div className='header'>
-         <h2 className='login-header'>Login </h2>
-         <div className='underline'></div>
+    <div className="login-container" >
+        <div className='login-header'>
+         <h2 id='login-title'>Login </h2>
+         <div id='underline'></div>
          </div>
        <form onSubmit={handleLogin}>
-          <div className="form-group">
-              <div className='ID'>
+          <div className="login-formgroup">
+              <div id='ID'>
                 <FaUser size={20}/> 
                 <label htmlFor="id"> ID</label>
                 </div>
@@ -61,7 +66,7 @@ function LoginPage() {
                   onChange={handleChange}
                   placeholder='아이디를 입력하세요'
                  />
-              <div className='PW'>
+              <div id='PW'>
                 <RiLockPasswordFill size={20}/>
                 <label htmlFor="password"> Password</label>
                 </div>
@@ -72,30 +77,35 @@ function LoginPage() {
                   placeholder='비밀번호를 입력하세요'
                  /> 
            </div>
+          
 
            <br></br>
            <br></br>
            <br></br>
            <br></br>
-           <br></br>
-  
+           <hr />
+           
           {/* Login 버튼 */}
            <button type="submit">Login</button>
 
            {/* ID/PW 찾기 버튼  */}
-           <div className='additional-links'>
-              <div onClick={handleForgotID} className='link'>
-              아이디 찾기
+           <div className='login-additional-links'>
+              <div onClick={handleForgotID} id='link-id'>
+              Forgot ID? 아이디 찾기
               </div>
-              <div onClick={handleForgotPW} className='link'>
-              비밀번호 찾기
+              
+              <div onClick={handleForgotPW} id='link-pw'>
+              Forgot PW? 비밀번호 찾기
               </div>
             </div>
        </form>
        
      </div>
+
+     
     
   );
 }
+
 
 export default LoginPage;
