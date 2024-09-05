@@ -58,6 +58,7 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(136, 136, 136, 0.579); /* 호버 시 더 깊은 그림자 */
   background-color: #f0ff7e;
+  cursor: pointer;
 }
 .menu-text {
   margin-top: 10px;
