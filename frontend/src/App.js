@@ -9,6 +9,7 @@ import Signup from './Components/LoginSignup/Signup';
 import Recommend from './Components/LoginSignup/Recommend';
 import InfoModal from './Components/InfoModal'
 import Main from './Components/LoginSignup/Main';
+import FeedbackMain from './Components/Feedback&Review/FeedbackMain';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/Recommend" element={<Recommend/>} />
       <Route path="/InfoModal" element={<InfoModal/>} />
       <Route path="/Signup" element={<Signup />} />
+      <Route path="/FeedbackMain" element={<FeedbackMain />} />
     </Routes>
   );
 }
