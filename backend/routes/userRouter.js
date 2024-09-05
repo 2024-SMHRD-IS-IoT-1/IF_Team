@@ -3,6 +3,8 @@ const router = express.Router();
 const conn = require("../config/db");
 const nodemailer = require('nodemailer')
 const path = require('path')
+const session = require('express-session');
+const app = express();
 
 //메인페이지 경로 설정
 /*router.get('/',(req,res)=>{
@@ -14,6 +16,13 @@ router.post('/getData',(req,res)=> {
     console.log('get data router',req.body);
     res.json({auth : 'user'});
 })
+
+app.use(session({
+    secret: 'your-secret-key',  // 세션 암호화에 사용할 키
+    resave: false,              // 세션이 변경되지 않으면 다시 저장하지 않음
+    saveUninitialized: false,   // 초기화되지 않은 세션을 저장하지 않음
+    cookie: { maxAge: 60000 * 60 * 24 } // 세션 쿠키 만료 시간 (하루)
+}));
 
 // singup 기능 라우터 
 router.post("/Signup", (req, res) => {
@@ -29,11 +38,13 @@ router.post("/Signup", (req, res) => {
             return res.status(500).json({ message: "회원가입 실패", error: err.message });
         }
         console.log('Result:', result);
-
+        try {
         if (result.affectedRows > 0) {
             res.json({ message: "회원가입 성공" });
         } else {
             res.json({ message: "회원가입 실패" });
+        }}catch{
+            console.log(err);
         }
     });
 });
@@ -49,10 +60,14 @@ router.post("/Login",(req,res)=>{
             console.error('로그인 중 오류 발생:', err);
             return res.status(500).json({ message: "로그인 실패", error: err.message });
         }
-        console.log("Result",result)
+        console.log("Result : ",rows)
         try{
         if(rows.length>0){
+            // 로그인 성공 시 세션에 사용자 ID 저장
+           
             res.json({message: "로그인 성공"})
+            req.session.user_id = user_id;
+
         }else{
             res.json({message : "로그인 실패 "})
         }}
