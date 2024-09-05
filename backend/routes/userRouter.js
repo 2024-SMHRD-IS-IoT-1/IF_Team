@@ -18,13 +18,12 @@ router.post('/getData',(req,res)=> {
 // singup 기능 라우터 
 router.post("/Signup", (req, res) => {
     console.log(req.body);
-
-    let { user_id,user_pw,user_name,joined_at,user_email} = req.body;
+    let { user_id,user_pw,user_name,user_email} = req.body;
 
     // SQL 쿼리 작성
-    let sql = "INSERT INTO tb_user (user_id,user_pw,user_name,joined_at,user_email) VALUES (?, ?, ?, NOW(),?)";
+    let sql = "INSERT INTO tb_user (user_id,user_pw,user_name,user_email,joined_at) VALUES (?, ?, ?, ?,NOW())";
 
-    conn.query(sql, [user_id,user_pw,user_name,joined_at,user_email], (err, result) => {
+    conn.query(sql, [user_id,user_pw,user_name,user_email], (err, result) => {
         if (err) {
             console.error('회원가입 중 오류 발생:', err);
             return res.status(500).json({ message: "회원가입 실패", error: err.message });
