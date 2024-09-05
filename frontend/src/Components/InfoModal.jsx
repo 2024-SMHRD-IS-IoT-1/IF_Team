@@ -1,6 +1,6 @@
 import React from 'react';
-import './InfoModal.css'; // Import CSS file for modal styling
-
+import '../css/infomodal.css'; // Import CSS file for modal styling
+import img from '../assets/product.png';
 const InfoModal = ({ onClose }) => {
   return (
     <div className="modal">
@@ -9,7 +9,7 @@ const InfoModal = ({ onClose }) => {
           &times;
         </span>
         {/* Replace src with your product image path */}
-        <img src="c:\Users\smhrd\Desktop\프로젝트에 사용될 이미지\product.png" alt="Product" className="product-image" />
+        <img src={'../assets/product.png'} alt="Product" className="product-image" />
         <p className="product-description">
         원목 LED 식물 무선 무드등 플랜테리어
         </p>
