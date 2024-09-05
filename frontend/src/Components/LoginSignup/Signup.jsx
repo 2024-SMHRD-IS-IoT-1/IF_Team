@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, {  useRef } from 'react';
 import axios from 'axios';
 // icon 이미지
 import { IoIosMail} from "react-icons/io";
@@ -10,11 +10,13 @@ import { TiUserDelete } from "react-icons/ti";
 
 
 
+
 function Signup() {
   const user_id = useRef('');
   const user_pw = useRef('');
   const user_name = useRef('');
   const user_email = useRef('');
+  
   // const [formData, setFormData] = useState({
   //   user_id: '',
   //   user_pw: '',
