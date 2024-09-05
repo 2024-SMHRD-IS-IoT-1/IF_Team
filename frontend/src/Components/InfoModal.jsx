@@ -1,22 +1,22 @@
 import React from 'react';
+import './InfoModal.css'; // Import CSS file for modal styling
 
-
-const ProductDescription = () => {
+const InfoModal = ({ onClose }) => {
   return (
-    <div className="product-description-container">
-      <div className="product-image">
-        <img src="https://via.placeholder.com/400" alt="Product" />
-      </div>
-      <div className="product-info">
-        <h1>Product Name</h1>
-        <p className="price">$199.99</p>
-        <p className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <div className="modal">
+      <div className="modal-content">
+        <span className="close-button" onClick={onClose}>
+          &times;
+        </span>
+        {/* Replace src with your product image path */}
+        <img src="c:\Users\smhrd\Desktop\프로젝트에 사용될 이미지\product.png" alt="Product" className="product-image" />
+        <p className="product-description">
+        원목 LED 식물 무선 무드등 플랜테리어
         </p>
-        <button className="buy-now">Buy Now</button>
       </div>
     </div>
   );
 };
 
-export default ProductDescription;
+export default InfoModal;
+
