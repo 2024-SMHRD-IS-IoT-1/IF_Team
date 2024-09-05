@@ -1,29 +1,30 @@
+// 웹 첫 시작 페이지
 import React from 'react';
 import { useNavigate, navigate } from 'react-router-dom'; // useNavigate 훅 임포트
-import '../../css/main.css'
+import '../../css/main.css';
+import '../../App.css';
 
 
-import { HiOutlineHome } from "react-icons/hi";
 
 const Main = () => {
   const navigate = useNavigate();
-
+ 
   const handleHomeClick = () => {
-  navigate('/Hompage'); 
-  
+  navigate('/homepage'); 
 };
 
 
   return (
-    <div className="container">
-      <header className='header'>
-          <h1>Make your</h1> 
-          <h1>Mood Light</h1>
-          <hr></hr>
+    <div className="main-container">
+      <header className='main-header'>
+          <h1 className='main-title'>Make your</h1> 
+          <h1 className="main-title">Mood Light
+          </h1>
+          <hr id='line'></hr>
       </header>
       
-      <button className='btn-home' type='button' onClick={handleHomeClick} >
-        <HiOutlineHome size={60}/>
+      <button className='main-btnhome' type='button' onClick={handleHomeClick} >
+        <h1>get start!</h1>
       </button>
     </div>
   )

@@ -7,7 +7,7 @@ import ForgotID from './Components/LoginSignup/ForgotID';
 import ForgotPW from './Components/LoginSignup/ForgotPW';
 import Signup from './Components/LoginSignup/Signup';
 import Recommend from './Components/LoginSignup/Recommend';
-import Product from './Components/LoginSignup/Product';
+import Product from './Components/Product';
 import Main from './Components/LoginSignup/Main';
 
 function App() {

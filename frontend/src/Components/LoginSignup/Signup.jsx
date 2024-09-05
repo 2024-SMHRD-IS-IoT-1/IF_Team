@@ -1,36 +1,58 @@
-import React, {useState, useEffect} from 'react';
-import '../../css/signup.css';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
-
-
 // icon 이미지
 import { IoIosMail} from "react-icons/io";
 import { RiLockPasswordFill} from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
-import { FaBirthdayCake } from "react-icons/fa";
+//import { FaBirthdayCake } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
-//import { ImManWoman } from "react-icons/im";
 import { TiUserDelete } from "react-icons/ti";
 
 
 
-export const Signup = () => {
-    const [action, setAction] = useState("Sign UP");
-    const [gender, setGender] = useState('');
-    const [userName, setUserName] = useState("");
-      
-// 성별 radio 박스
-const handleGenderChange = (event) => {
-  setGender(event.target.value);
-};
+function Signup() {
+  const user_id = useRef('');
+  const user_pw = useRef('');
+  const user_name = useRef('');
+  const user_email = useRef('');
+  // const [formData, setFormData] = useState({
+  //   user_id: '',
+  //   user_pw: '',
+  //   user_name: '',
+  //   user_email: '',
+  //   joined_at: ''
+  // });
 
-const SignupRequest = () => {
-    axios.post("url/signup",{userName: userName})
-}
+  // const handleChange = (e) => {
+  //   console.log(formData)
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      user_id : user_id.current.value,
+      user_pw : user_pw.current.value,
+      user_name : user_name.current.value,
+      user_email : user_email.current.value
+    }
+    console.log(formData)
+    axios.post('http://localhost:5000/user/signup', formData)
+      .then(response => {
+        console.log('Signup successful:', response.data);
+      })
+      .catch(error => {
+        console.error('There was an error signing up!', error);
+      });
+  };
 
   return (
+    
     <div className='container'>
+      <form onSubmit={handleSubmit}>
         <div className='header'>
             <div className='text'>Sign Up</div>
             <div className='underline'></div>
@@ -39,60 +61,44 @@ const SignupRequest = () => {
         <br></br>
         <br></br>
         <div className='input-container'>
-            <div className='name'>
-                <FaUser size={24}/>
-                <input type="text" placeholder='  name' id = 'InputName' onChange={(e) => {
-                    console.log(e.target.value)
-                }} />
-            </div>
+            
             <div className='userid' >
                 <TiUserDelete size={24}/>
-                <input type="text" placeholder='  id' id = 'InputID'/>
+                {/* <input type="text" placeholder='  id' id = 'InputID' onChange={handleChange} /> */}
+                <input type="text" placeholder='  id' id = 'InputID' ref={user_id}/>
             </div>
             <div className='password'>
                 <RiLockPasswordFill size={24}/>
-                <input type="password" placeholder='  password' id='InputPW' />
+                {/* <input type="password" placeholder='  password' id='InputPW' onChange={handleChange}  /> */}
+                <input type="password" placeholder='  password' id='InputPW' ref={user_pw}  />
             </div>
             <div className='passwordcheck'>
                 <MdPassword size={24}/>
-                <input type="password" placeholder='  password check' />
+                <input type="password" placeholder='  password check'/>
+            </div>
+            <div className='name'>
+                <FaUser size={24}/>
+                {/* <input type="text" placeholder='  name' id = 'InputName' onChange={handleChange} /> */}
+                <input type="text" placeholder='  name' id = 'InputName' ref={user_name} />
             </div>
             <div className='inputs'>
                 <IoIosMail size={24} />
-                <input type="email" placeholder='  email' id = 'InputEmail'/>
+                {/* <input type="email" placeholder='  email' id = 'InputEmail' onChange={handleChange} /> */}
+                <input type="email" placeholder='  email' id = 'InputEmail' ref={user_email} />
             </div>
-            <div className='birth'>
+            {/* <div className='birth'>
                 <FaBirthdayCake size={24}/>
-                <input type="date" placeholder='  bithday' id ='Inputbirth'/>
-            </div>
-            {/*<div className='gender'>
-                < ImManWoman size={24}/>
-                <label className='male_female'>
-                   <input
-                      type='radio'
-                      value='male'
-                      checked={gender === 'male'}
-                      onChange={handleGenderChange}
-                      id ='Inputmale'
-                    />남자
-                </label>
-                <label>
-                  <input
-                   type='radio'
-                   value='female'
-                   checked={gender === 'female'}
-                   onChange={handleGenderChange}
-                  />여자
-                </label>
-            </div>*/}
+                <input type="date" placeholder='  bithday' id ='Inputbirth' onChange={handleChange} />
+            </div> */}
         </div>
 
 
         <div className='submit-container'>
-            <button className="submit" onClick={()=>{setAction("Sign Up")}}>Sign UP</button> 
-        </div>
+            <button className="submit" >Sign UP</button> 
+        </div> 
+        </form>
     </div>
-   
+  
   )
 }
 
