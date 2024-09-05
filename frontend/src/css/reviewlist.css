@@ -1,0 +1,93 @@
+/* .reviewlist-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  
+  .reviewlist-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .reviewlist-header h1 {
+    font-family:'HSGooltokki' ;
+    font-size: 80px;
+    color: #001f3f;
+    margin-bottom: 10px;
+    line-height: 2;
+    letter-spacing: 10px;
+  } */
+
+  .review-list-container {
+    width: 800px; /* Fixed width */
+    margin: 0 auto; /* Centered */
+    font-family: Arial, sans-serif;
+  }
+  
+  .review-filter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .review-filter button {
+    margin-left: 10px;
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .review-filter input[type='checkbox'] {
+    margin-right: 5px;
+  }
+  
+  .reviews {
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+  }
+  
+  .review-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .review-stars {
+    color: #f80; /* Star color */
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .review-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .review-date {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .review-content {
+    margin-bottom: 10px;
+  }
+  
+  .review-actions {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .review-actions button {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+  }
+  

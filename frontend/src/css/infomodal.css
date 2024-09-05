@@ -1,40 +1,222 @@
-.modal {
+@font-face {
+    font-family: 'HSYuji-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} /* 글씨체 수정한것    */
+
+
+
+
+
+
+/* src/css/ProductPage.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .product-header {
     display: flex;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+    background-color: #fff;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    display: flex;
     align-items: center;
   }
   
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
+  .search-bar input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .search-button {
+    padding: 10px;
+    background-color: #00bfa5;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .header-icons button {
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .product-content {
+    display: flex;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .product-image {
+    width: 400px;
+    margin-right: 40px;
+    border: 1px solid #eaeaea;
     border-radius: 10px;
-    width: 50%;
-    position: relative;
+  }
+  
+  .product-details {
+    max-width: 600px;
+  }
+  
+  .product-category {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .product-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .shipping-info {
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .quantity-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .quantity {
+    margin: 0 10px;
+    font-size: 18px;
+  }
+  
+  .total-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .buy-now-button,
+  .add-to-cart-button {
+    padding: 15px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .buy-now-button {
+    background-color: #00c851;
+    color: white;
+  }
+  
+  .add-to-cart-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+
+  /* src/css/infomodal.css 글씨체 수정중 */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Default font for the entire app */
+  }
+  
+  .product-category {
+    font-family: 'Courier New', monospace; /* Change to a different font */
+    font-size: 20px; /* Adjust font size */
+    font-weight: bold; /* Adjust font weight */
+    color: #333; /* Optional: Change text color */
+    margin-bottom: 10px; /* Add some space below */
+  }
+  
+  /* Other styles remain unchanged */
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eaeaea;
+    background-color: #fff;
+  }
+  
+ /* 상세정보 버튼 열기 닫기*/
+  .details-toggle-container {
+    text-align: center; /* 버튼을 중앙 정렬 */
+    margin: 20px 0; /* 위아래 여백 추가 */
+  }
+  
+  .toggle-details-button {
+    padding: 10px 20px; /* 버튼 크기 조정 */
+    font-size: 16px; /* 글자 크기 조정 */
+    background-color: #007bff; /* 버튼 배경색 */
+    color: white; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    cursor: pointer; /* 커서 모양 변경 */
+  }
+  
+  .toggle-details-button:hover {
+    background-color: #0056b3; /* 호버 시 색상 변경 */
+  }
+
+  .product-page {
+    padding: 20px;
+  }
+  
+  .product-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Add some margin to separate from details section */
+  }
+  
+  .details-toggle-container {
+    margin: 20px 0;
     text-align: center;
   }
   
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
+  .details-content {
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
   }
   
   .product-image {
     width: 100%;
-    height: auto;
+    max-width: 400px; /* Adjust as needed */
     margin-bottom: 20px;
-  }
-  
-  .product-description {
-    font-size: 18px;
-    color: #333;
   }
   

@@ -1,9 +1,7 @@
 .feedbackmain-container {
   width: 80%;
   margin: 0 auto;
-  padding: 40px 0;
-  font-family: Arial, sans-serif;
-  color: #333;
+  padding: 40px 0;;
 }
 
 .feedbackmain-header {
@@ -12,8 +10,13 @@
 }
 
 .feedbackmain-header h1 {
-  font-size: 36px;
+  font-size: 60px;
   margin-bottom: 10px;
+  font-family:'HSGooltokki' ;
+  color: #001f3f;
+  margin-bottom: 10px;
+  line-height: 2;
+  letter-spacing: 10px;
 }
 
 .feedbackmain-header p {
