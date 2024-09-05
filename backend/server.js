@@ -7,6 +7,14 @@ const userRouter = require("./routes/userRouter");
 
 // cors 설정 ( 도메인 주소가 달라도 일치 시킬 수 있음)
 const cors = require('cors')
+const router = express.Router();
+  router.get("/checkAuth", (req, res) => {
+    if (req.session.user_id) {
+        res.json({ loggedIn: true, user_id: req.session.user_id });
+    } else {
+        res.json({ loggedIn: false });
+    }
+  });
 app.use(cors());
 app.use(bp.urlencoded({extended : true})); 
 app.use(express.json());
