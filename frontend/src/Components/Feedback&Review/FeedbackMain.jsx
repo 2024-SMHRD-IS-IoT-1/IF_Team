@@ -1,15 +1,20 @@
 import React, {useState, useEffect}from 'react'
 import { BrowserRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
+
 import '../../css/feedbackpage.css';
+import '../../App.css';
 
-
-function ReviewPage() {
+function FeedbackMain() {
+  const navigate = useNavigate(); // useNavigate 훅 사용
+  
+  
   return (
     <div className="review-container">
       <header className="review-header">
-        <h1>훌륭한 강좌</h1>
-        <p>우수한 커뮤니티 회원들로부터 새로운 것을 배워 보세요.</p>
-        <a href="#all-reviews" className="view-all-link">모든 사용자 강좌 보기 &gt;</a>
+        <h1>Comments</h1>
+        <p>다양한 후기를 들어보세요</p>
+        <a href="#all-reviews" className="view-all-link">모든 사용자 후기 보기 &gt;</a>
       </header>
       
       <section className="review-list">
@@ -41,4 +46,4 @@ function ReviewPage() {
   );
 }
 
-export default FeedbackPage;
+export default FeedbackMain;
