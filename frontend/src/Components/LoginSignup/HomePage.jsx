@@ -23,9 +23,20 @@ const HomePage = () => {
   };
 
   const handleHomePageClick = ()=>{
-    navigate('/homepage') // Signup page로 이동
+    navigate('/') 
   };
-
+  const handleInfoClick = ()=>{
+    navigate('/InfoModal') 
+  };
+  const handleRecommendClick = ()=>{
+    navigate('/Recommend') 
+  };
+  const handleSettingsClick = ()=>{
+    navigate('/')  
+  };
+  const handleCommentsClick = ()=>{
+    navigate('/FeedbackMain')  
+  };
   return (
     <div className="homepage-container">
       <header className="homepage-header">
@@ -35,24 +46,24 @@ const HomePage = () => {
       
     <div className='homepage-menu'>
       <div className='menu-icon' >
-        <HiOutlineHome size={40}/>
+        <HiOutlineHome size={40} onClick={handleHomePageClick}/>
         <div className='menu-text' onClick={handleHomePageClick}>Home</div>
       </div>
       <div className='menu-icon'>
-        <MdOutlineRateReview size={40}/>
-        <div className='menu-text'>Info</div>
+        <MdOutlineRateReview size={40} onClick={handleInfoClick}/>
+        <div className='menu-text'onClick={handleInfoClick}>Info</div>
       </div>
       <div className='menu-icon'>
-        <FaRegThumbsUp size={40}/>
-        <div className='menu-text'>recommend</div>
+        <FaRegThumbsUp size={40} onClick={handleRecommendClick}/>
+        <div className='menu-text'onClick={handleRecommendClick}>recommend</div>
       </div>
       <div className="menu-icon">
-          <FaCog size={40} />
-          <div className="menu-text">Settings</div>
+          <FaCog size={40} onClick={handleSettingsClick}/>
+          <div className="menu-text" onClick={handleSettingsClick}>Settings</div>
         </div>
       <div className='menu-icon'>
-        <FaCommentDots size={40}/>
-      <div className='menu-text'>comments</div>
+        <FaCommentDots size={40} onClick={handleSettingsClick}/>
+      <div className='menu-text'onClick={handleSettingsClick}>comments</div>
       </div>
     </div>
 
