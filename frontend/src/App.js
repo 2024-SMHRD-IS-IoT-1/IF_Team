@@ -21,9 +21,6 @@ function App() {
       <Route path="/Recommend" element={<Recommend/>} />
       <Route path="/Product" element={<Product/>} />
       <Route path="/Signup" element={<Signup />} />
-     
- 
-
     </Routes>
   );
 }
