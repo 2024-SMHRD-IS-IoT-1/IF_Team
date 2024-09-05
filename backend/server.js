@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
 
 
 // 포트 설정 
-app.set('port', process.env.PORT || 5050);
+app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), ()=>{
     console.log(`Server is running on ${app.get('port')}`);
 })

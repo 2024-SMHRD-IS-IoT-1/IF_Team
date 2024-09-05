@@ -2,27 +2,18 @@ const express = require("express");
 const router = express.Router();
 const conn = require("../config/db");
 const nodemailer = require('nodemailer')
-// singup 기능 라우터 
-router.post("/signup",(req,res)=>{
+const path = require('path')
 
-    console.log(req.body)
-    let {InputID, InputPW, InputName, InputEmail, InputBirth} = req.body
-    let sql = "insert into tb_user(user_id,user_pw,user_name,user_email,joined_at) values (?,?,?,?,?)"
+//메인페이지 경로 설정
+/*router.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'..','..','frontend','build'))
+})*/
 
-    conn.query(sql,[InputID, InputPW, InputName, InputEmail, InputBirth], (err, rows)=>{
-        console.log('rows',rows)
-        try{
-        if (rows){
-            res.json({message : "회원가입 성공"})
-        }else{
-            res.json({message:"회원가입 실패"})
-        }}
-        catch(err){
-            console.log(err);
-        }
-    })
+//axios로 받아온 데이터확인 
+router.post('/getData',(req,res)=> {
+    console.log('get data router',req.body);
+    res.json({auth : 'user'});
 })
-
 
 // singup 기능 라우터 
 router.post("/Signup", (req, res) => {
@@ -47,14 +38,18 @@ router.post("/Signup", (req, res) => {
     });
 });
 
-
 // 로그인 기능담당 라우터
-router.post("/login",(req,res)=>{
+router.post("/Login",(req,res)=>{
     console.log('user login router', req.body)
     let {user_id,user_pw} = req.body
 
     let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?"
-    conn.sql(sql,[user_id,user_pw],(err,rows)=>{
+    conn.query(sql,[user_id,user_pw],(err,rows)=>{
+        if (err) {
+            console.error('로그인 중 오류 발생:', err);
+            return res.status(500).json({ message: "로그인 실패", error: err.message });
+        }
+        console.log("Result",result)
         try{
         if(rows.length>0){
             res.json({message: "로그인 성공"})
