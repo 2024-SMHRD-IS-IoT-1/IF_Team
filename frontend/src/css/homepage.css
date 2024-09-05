@@ -1,73 +1,115 @@
 /* 전체 화면 레이아웃 */
-.app-container {
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff; /* 밝은 회색 배경색 */
+}
+
+/* 헤더 스타일링 */
+.homepage-header {
+  margin-top: 40px;
+}
+
+#title1 {
+  margin: 0;
+  font-size: 80px;
+  font-family:'HSGooltokki' ;
+  color: #b7d1eb; /* 파란색 포인트 컬러 */
+  line-height: 1; /* 줄 간격 조정 */
+}
+
+#title2 {
+  margin: 0;
+  font-size: 70px;
+  font-family:'HSGooltokki' ;
+  color: #3b82f6; /* 파란색 포인트 컬러 */
+  line-height: 1.5; /* 줄 간격 조정 */
+}
+
+/* 메인 카드 그리드 스타일 */
+.homepage-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 70px 0;
+}
+
+/* 카드 스타일 */
+.menu-icon {
+  background-color: #e5e5e5; /* 흰색 배경 */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.604); /* 더 연한 그림자 */
+  text-align: center;
+  width: 80px; /* 카드 크기 지정 */
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  text-align: center;
+  transition: transform 0.2s;
+}
+.menu-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(136, 136, 136, 0.579); /* 호버 시 더 깊은 그림자 */
+  background-color: #f0ff7e;
+}
+.menu-text {
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+  color: #1f2937; /* 어두운 회색 텍스트 */
 }
 
-/* 헤더 스타일링 */
-.header {
-  position: absolute;
-  top: 150px;
-  width: 100%;
+/* 버튼 스타일 */
+.homepage-buttion-container {
+  margin-bottom: 40px;
 }
-
-.header h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: #44c70c;
-}
-
-/* 메뉴바 스타일링 */
-.navbar {
-  margin-top: 60px; /* 헤더와의 간격 */
-  background-color: #000500;
-  padding: 15px 100px;
-  border-radius: 5px;
-  box-shadow: 0px 4px 6px rgb(255, 255, 255);
-}
-
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex; /* Flexbox로 메뉴 항목을 행으로 정렬 */
-  justify-content: center;
-}
-
-.menu .submenu {
-  text-decoration: none;
-  color: #ffffff;
+.homepage-btn-login {
+  width: 250px; /* 버튼 너비를 고정 설정 */
+  height: 70px; /* 버튼 높이를 고정 설정 */
+  background: #000000a5; /* 파란색 포인트 컬러 */
+  color: white;
+  border: none; /* 버튼에 테두리를 없앰 */
+  font-size: 30px; /* 버튼 텍스트의 크기를 18px로 설정 */
   font-weight: bold;
-  margin: 0 30px; /* 메뉴 항목 간의 간격을 조정 */
+  cursor: pointer; /* 버튼 위에 마우스를 올리면 커서가 손가락 모양으로 변경됨 */
+  padding: 15px 30px;
+  border-radius: 25px; /* 버튼 모서리를 25px로 둥글게 만듦 */
+  position: absolute; /* 부모 컨테이너를 기준으로 절대 위치 지정 */
+  top: 730px; /* 제목에서부터 고정된 거리 설정 */
+  left: 50%;
+  transform: translateX(-50%); /* 버튼의 중앙 정렬을 위한 이동 */
+  z-index: 1000; /* 버튼이 다른 요소보다 위에 보이도록 설정 */
+  letter-spacing: 10px;  /*글자간격*/
+  font-family: 'Cafe24Behappy';
+  /* transition: background 0.3s; */
+  
 }
-
-.menu .submenu:hover {
-  color: #16406d;
+.homepage-btn-login:hover {
+  background: #3b82f6; /* 호버 시 어두운 파란색 */
 }
-
-/* 버튼 컨테이너 스타일링 */
-.button-container {
+.homepage-Loginlink {
+  text-decoration: none;
+  cursor: pointer;
+  color: gray;
+  opacity: 0.9;
   margin-top: 50px;
+  font-family: 'Cafe24Decoschool';
+  font-size: 16px;
+  position: absolute; /* 위치를 절대값으로 설정 */
+  top: 780px;; /* 버튼 바로 위에 위치 */
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translateX(-50%); /* 수평 중앙 정렬 */
   display: flex;
   justify-content: center;
-  gap: 50px;
+}
+.homepage-Loginlink:hover{
+ color: blue;
 }
 
-/* 버튼 스타일링 */
-.btn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #10530e;
-  color: rgb(255, 255, 255);
-}
-
-.btn:hover {
-  background-color: #000000;
-}
