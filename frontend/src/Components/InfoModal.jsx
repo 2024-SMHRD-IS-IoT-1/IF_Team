@@ -2,12 +2,17 @@
 import React, { useState } from 'react';
 import '../css/infomodal.css';
 import img from '../assets/product.png';
+import img2 from '../assets/product2.png';
+import img3 from '../assets/product3.png';
+import img4 from '../assets/product4.png';
 
 const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false); // 상세정보 열기/닫기 상태
 
   const handleIncrease = () => setQuantity(quantity + 1);
   const handleDecrease = () => quantity > 1 && setQuantity(quantity - 1);
+  const toggleDetails = () => setIsDetailsOpen(!isDetailsOpen); // 상세정보 토글 함수
 
   return (
     <div className="product-page">
@@ -24,7 +29,24 @@ const ProductPage = () => {
       </header>
 
       <div className="product-content">
-        <img src={img} alt="Product" className="product-image" />
+        {/* Main Product Image */}
+        
+        <div>
+             {/* Main Product Image */}
+             <img src={img} alt="Product" className="product-image" />
+               {/* 상세정보 열기/닫기 버튼을 이미지 바로 아래로 이동 */}
+        
+        <div className="details-toggle-container">
+          <button onClick={toggleDetails} className="toggle-details-button">
+            {isDetailsOpen ? '상세정보 닫기' : '상세정보 열기'}
+          </button>
+        </div>
+
+        </div>
+        
+       
+
+      
         <div className="product-details">
           <h2 className="product-category">Set the Perfect Mood</h2>
           <h1 className="product-title">플렌테리어 무드등</h1>
@@ -47,10 +69,19 @@ const ProductPage = () => {
             <button className="add-to-cart-button">장바구니</button>
           </div>
         </div>
+
+        {/* 상세정보 내용 */}
+        {isDetailsOpen && (
+          <div className="details-content">
+            <h3>상세정보</h3>
+            <img src={img2} alt="Product" className="product-image" />
+            <img src={img3} alt="Product" className="product-image" />
+            <img src={img4} alt="Product" className="product-image" />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default ProductPage;
-
