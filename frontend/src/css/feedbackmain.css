@@ -1,20 +1,4 @@
-/* body {
-    background : url('../assets/sleep.jpg') 
-    no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;  
-}
-
-.fb-header{
-    font-family: poppins;
-    
-} */
-
-.review-container {
+.feedbackmain-container {
   width: 80%;
   margin: 0 auto;
   padding: 40px 0;
@@ -22,27 +6,31 @@
   color: #333;
 }
 
-.review-header {
+.feedbackmain-header {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.review-header h1 {
+.feedbackmain-header h1 {
   font-size: 36px;
   margin-bottom: 10px;
 }
 
-.review-header p {
+.feedbackmain-header p {
   font-size: 18px;
   color: #666;
 }
 
-.view-all-link {
-  font-size: 14px;
+.feedbackmain-link {
+  font-size: 17px;
   color: #0073e6;
   text-decoration: none;
   margin-top: 10px;
   display: inline-block;
+  cursor: pointer;
+}
+.feedbackmain-link:hover {
+  color: red;
 }
 
 .review-list {
