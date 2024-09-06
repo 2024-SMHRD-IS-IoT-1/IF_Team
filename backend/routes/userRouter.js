@@ -6,10 +6,6 @@ const path = require('path')
 const session = require('express-session');
 const app = express();
 
-//메인페이지 경로 설정
-/*router.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'..','..','frontend','build'))
-})*/
 
 //axios로 받아온 데이터확인 
 router.post('/getData',(req,res)=> {
@@ -17,12 +13,6 @@ router.post('/getData',(req,res)=> {
     res.json({auth : 'user'});
 })
 
-app.use(session({
-    secret: 'your-secret-key',  // 세션 암호화에 사용할 키
-    resave: false,              // 세션이 변경되지 않으면 다시 저장하지 않음
-    saveUninitialized: false,   // 초기화되지 않은 세션을 저장하지 않음
-    cookie: { maxAge: 60000 * 60 * 24 } // 세션 쿠키 만료 시간 (하루)
-}));
 
 // singup 기능 라우터 
 router.post("/Signup", (req, res) => {
@@ -57,26 +47,28 @@ router.post("/Login",(req,res)=>{
     let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?"
     conn.query(sql,[user_id,user_pw],(err,rows)=>{
         if (err) {
-            console.error('로그인 중 오류 발생:', err);
-            return res.status(500).json({ message: "로그인 실패", error: err.message });
+            console.log(err);
+            return res.status(500).json({ message: "failed"});
         }
-        console.log("Result : ",rows)
-        try{
+
         if(rows.length>0){
             // 로그인 성공 시 세션에 사용자 ID 저장
-           
-            res.json({message: "로그인 성공"})
+            console.log(rows)
             req.session.user_id = user_id;
-
+            res.json({message: "success"})
         }else{
-            res.json({message : "로그인 실패 "})
-        }}
-        catch(err){
-            console.log(err);
+            res.status(400).json({message : "failed"})
         }
-    })
-})
 
+    });
+})
+router.get("/Login", (req, res) => {
+    if (req.session.user_id) {
+      res.json({ user_id: req.session.user_id });
+    } else {
+      res.status(401).json({ message: "로그인이 필요합니다." });
+    }
+  });
 
 /*// 비밀번호 찾기
 const transporter = nodemailer.createTransport({
@@ -108,7 +100,7 @@ app.post('/find-userpw', (req, res) => {
                         from: 'kimsj020406@gmail.com',
                         to: email,
                         subject: '임시 비밀번호 발송',
-                        text: `안녕하세요, ${name}님.\n\n요청하신 임시 비밀번호는 다음과 같습니다: ${temporaryPassword}\n\n로그인 후 비밀번호를 변경해 주세요.`
+                        text: 안녕하세요, ${name}님.\n\n요청하신 임시 비밀번호는 다음과 같습니다: ${temporaryPassword}\n\n로그인 후 비밀번호를 변경해 주세요.
                     };
     
                     transporter.sendMail(mailOptions, (error, info) => {
@@ -150,7 +142,7 @@ app.post('/find-username', (req, res) => {
                 from: 'kimsj020406@gmail.com',
                 to: email,
                 subject: '아이디 찾기 결과',
-                text: `안녕하세요, ${name}님.\n\n요청하신 아이디는 다음과 같습니다: ${user_id}\n\n감사합니다.`
+                text: 안녕하세요, ${name}님.\n\n요청하신 아이디는 다음과 같습니다: ${user_id}\n\n감사합니다.
             };
 
             transporter.sendMail(mailOptions, (error, info) => {

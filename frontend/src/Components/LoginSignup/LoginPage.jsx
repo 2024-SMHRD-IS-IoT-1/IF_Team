@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../css/login.css';
 import '../../css/signup.css';
@@ -15,7 +15,7 @@ function LoginPage() {
   const user_id = useRef('');
   const user_pw = useRef('');
   const navigate = useNavigate();
-
+  const [loginUserId,setLoginUserId]=useState(null);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,13 +25,28 @@ function LoginPage() {
     }
     axios.post('http://localhost:5000/user/Login', formData)
       .then(response => {
+        if(response.data.message==='success'){ 
         console.log('Login successful:', response.data);
+        setLoginUserId(response.data.user_id); // 로그인 성공 시 user_id 저장
+          navigate('/homepage'); // 로그인 성공 후 페이지 이동
+        } else {
+          alert('로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.');
+        }
       })
       .catch(error => {
         console.error('There was an error Login!', error);
       });
   };
-
+  // // 로그인된 사용자 정보 가져오기
+  //   const fetchUserData = () => {
+  //     axios.get('http://localhost:5000/Login')
+  //       .then(response => {
+  //         setLoginUserId(response.data.user_id); // 서버로부터 user_id 받아와 저장
+  //       })
+  //       .catch(error => {
+  //         console.error('Error fetching user data:', error);
+  //       });
+  //   };
   const handleForgotID = () => {
     navigate('/forgot-id'); // ForgotID 페이지로 이동
   };
