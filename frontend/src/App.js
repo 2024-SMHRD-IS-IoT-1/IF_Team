@@ -13,7 +13,7 @@ import FeedbackMain from './Components/Feedback&Review/FeedbackMain';
 
 //다영feedback&Review 
 import ReviewList from './Components/Feedback&Review/ReviewList';
-
+import ReviewWrite from './Components/Feedback&Review/ReviewWrite';
 function App() {
   return (
     <Routes>
@@ -27,6 +27,7 @@ function App() {
       <Route path="/Signup" element={<Signup />} />
       <Route path="/FeedbackMain" element={<FeedbackMain />} />
       <Route path="/ReviewList" element={<ReviewList />} />
+      <Route path='/ReviewWrite' element={<ReviewWrite />} />
     </Routes>
   );
 }

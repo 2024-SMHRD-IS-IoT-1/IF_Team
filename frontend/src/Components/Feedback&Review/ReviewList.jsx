@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../css/reviewlist.css'; // 스타일을 위한 CSS 파일을 불러옵니다.
+import { useNavigate } from 'react-router';
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]); // 리뷰 데이터를 저장할 상태 변수
@@ -31,6 +32,10 @@ const ReviewList = () => {
     // 추가적으로 정렬을 처리하는 로직을 여기에 추가할 수 있습니다.
   };
 
+  const handleReviewWirte = ()=>{
+    navigate('/ReviewWrite');
+  }
+
 
 
   return (
@@ -40,6 +45,7 @@ const ReviewList = () => {
         <button onClick={() => handleFilterChange('recommendation')}>추천순</button>
         <button onClick={() => handleFilterChange('latest')}>최신순</button>
         <button onClick={() => handleFilterChange('highest')}>별점 높은 순</button>
+        <button onClick={() => handleReviewWirte()}>리뷰작성</button>
       </div>
       <div className="reviews">
         {reviews.map((data, index) => (
