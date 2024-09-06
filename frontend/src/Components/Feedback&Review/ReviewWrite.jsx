@@ -38,7 +38,7 @@ function ReviewWrite() {
             type='radio'
             value='만족'
             checked={preference1 === '만족'}
-            onChange={() => handleChange(setPreference1, '만족')}
+            onChange={() => handlePreferenceCilck(setPreference1, '만족')}
             />
             만족
              </label>
@@ -56,7 +56,7 @@ function ReviewWrite() {
             type='radio'
             value='불만족'
             checked={preference1 === '불만족'}
-            onChange={() => handleChange(setPreference1, '불만족')}
+            onChange={() => handlePreferenceCilck(setPreference1, '불만족')}
           />
           불만족
         </label>
@@ -70,7 +70,7 @@ function ReviewWrite() {
             type='radio'
             value='만족'
             checked={preference2 === '만족'}
-            onChange={() => handleChange(setPreference2, '만족')}
+            onChange={() => handlePreferenceCilck(setPreference2, '만족')}
           />
           만족
         </label>
@@ -88,7 +88,7 @@ function ReviewWrite() {
             type='radio'
             value='불만족'
             checked={preference2 === '불만족'}
-            onChange={() => handleChange(setPreference2, '불만족')}
+            onChange={() => handlePreferenceCilck(setPreference2, '불만족')}
           />
           불만족
         </label>
@@ -111,7 +111,7 @@ function ReviewWrite() {
             type='radio'
             value='보통'
             checked={preference3 === '보통'}
-            onChange={() => handleChange(setPreference3, '보통')}
+            onChange={() => handlePreferenceCilck(setPreference3, '보통')}
           />
           보통
         </label>
@@ -120,7 +120,7 @@ function ReviewWrite() {
             type='radio'
             value='불만족'
             checked={preference3 === '불만족'}
-            onChange={() => handleChange(setPreference3, '불만족')}
+            onChange={() => handlePreferenceCilck(setPreference3, '불만족')}
           />
           불만족
         </label>
