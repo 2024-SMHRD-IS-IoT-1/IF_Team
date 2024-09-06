@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../css/reviewlist.css'; // 스타일을 위한 CSS 파일을 불러옵니다.
-import { useNavigate } from 'react-router';
+import { navigate , useNavigate } from 'react-router-dom';
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]); // 리뷰 데이터를 저장할 상태 변수
@@ -32,6 +32,7 @@ const ReviewList = () => {
     // 추가적으로 정렬을 처리하는 로직을 여기에 추가할 수 있습니다.
   };
 
+  const navigate = useNavigate();
   const handleReviewWirte = ()=>{
     navigate('/ReviewWrite');
   }
