@@ -36,12 +36,12 @@ function ReviewWrite() {
 
                 <p>제품 디자인에 만족하나요? </p>
                 <label> 
-                <input id ='Question_2' type = 'radio' value = '보통' checked = {preference2 === '보통'} onChange = {()=>handlePreferenceCilck(setPreference1, 보통)}> 보통 </input>
+                <input id ='Question_2' type = 'radio' value = '보통' checked = {preference2 === '보통'} onChange = {()=>handlePreferenceCilck(setPreference2, 보통)}> 보통 </input>
                 </label>
 
                 <p>제품 기능에 만족하나요?</p>
                 <label>
-                <input id ='Question_3' type = 'radio' value = '불만족' checked = {preference3 === '불만족'} onChange = {()=>handlePreferenceCilck(setPreference1, 불만족)}> 불만족 </input>
+                <input id ='Question_3' type = 'radio' value = '불만족' checked = {preference3 === '불만족'} onChange = {()=>handlePreferenceCilck(setPreference3, 불만족)}> 불만족 </input>
                 </label>
             </div>
         </div>
