@@ -9,7 +9,7 @@ function ReviewWrite() {
 
     const handlePreferenceCilck = (setPreference, value) => {
         setPreference(value); //선택된 값으로 상태를 업데이트
-    }
+    };
     
 
   return (
@@ -28,9 +28,10 @@ function ReviewWrite() {
             {/* 리뷰 선택 작성  */}
             <div className='chioce-contents'>
                 <h1 className='reviewwrite-preference'>선호도 조사 (선택)</h1>
-                <label id= 'Question_1' type = 'radio' checked = {reviewwrite-preference ==='' }> 제품 사용 후 변화가 있었나요? </label>
-                <label id ='Question_2' type = 'radio' checked = {reviewwrite-preference === ''}> 제품 디자인에 만족하나요? </label>
-                <label id ='Question_3' type = 'radio' checked = {reviewwrite-preference === ''}> 제품 기능에 만족하나요? </label>            </div>
+                <label id= 'Question_1' type = 'radio' value = '만족' checked = {preference1 === '만족' } onChange = {()=>handlePreferenceCilck(setPreference1, 만족)}> 제품 사용 후 변화가 있었나요? </label>
+                <label id ='Question_2' type = 'radio' value = '보통' checked = {preference2 === '보통'} onChange = {()=>handlePreferenceCilck(setPreference1, 보통)}> 제품 디자인에 만족하나요? </label>
+                <label id ='Question_3' type = 'radio' value = '불만족' checked = {preference3 === '불만족'} onChange = {()=>handlePreferenceCilck(setPreference1, 불만족)}> 제품 기능에 만족하나요? </label>
+            </div>
         </div>
         
     </div>
