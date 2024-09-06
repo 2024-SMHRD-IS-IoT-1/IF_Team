@@ -12,7 +12,6 @@ const cors = require('cors')
 app.use(cors());
 app.use(bp.urlencoded({extended : true})); 
 app.use(express.json());
-app.use("/user",userRouter);
 app.use(session({
     httpOnly: true,
     resave: false,
@@ -21,6 +20,7 @@ app.use(session({
     saveUninitialized: false,
     expires: new Date(Date.now() + (60 * 60 * 1 ))
 }));
+app.use("/user",userRouter);
 
 
 // 메인페이지 경로 설정 

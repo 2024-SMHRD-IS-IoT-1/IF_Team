@@ -24,15 +24,15 @@ router.post("/Signup", (req, res) => {
 
     conn.query(sql, [user_id,user_pw,user_name,user_email], (err, result) => {
         if (err) {
-            console.error('회원가입 중 오류 발생:', err);
-            return res.status(500).json({ message: "회원가입 실패", error: err.message });
+            console.error('error:', err);
+            return res.status(500).json({ message: "failed", error: err.message });
         }
         console.log('Result:', result);
         try {
         if (result.affectedRows > 0) {
-            res.json({ message: "회원가입 성공" });
+            res.json({ message: "success" });
         } else {
-            res.json({ message: "회원가입 실패" });
+            res.json({ message: "failed" });
         }}catch{
             console.log(err);
         }
@@ -50,10 +50,10 @@ router.post("/Login",(req,res)=>{
             console.log(err);
             return res.status(500).json({ message: "failed"});
         }
+        console.log(rows)
 
         if(rows.length>0){
             // 로그인 성공 시 세션에 사용자 ID 저장
-            console.log(rows)
             req.session.user_id = user_id;
             res.json({message: "success"})
         }else{
@@ -69,6 +69,17 @@ router.get("/Login", (req, res) => {
       res.status(401).json({ message: "로그인이 필요합니다." });
     }
   });
+
+  //리뷰 라우터 
+  router.get('/ReviewList', async (req, res) => {
+    let sql ='select * from tb_feedback where feedback_idx IS NOT NULL AND user_id IS NOT NULL'
+    conn.query(sql,(err,review_list)=>{
+        if(err){
+            return res.status(500).json({error:"review_list error"})
+        }
+        res.json({data:review_list});
+        });
+    });
 
 /*// 비밀번호 찾기
 const transporter = nodemailer.createTransport({

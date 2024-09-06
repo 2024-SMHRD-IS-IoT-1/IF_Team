@@ -6,19 +6,27 @@ const ReviewList = () => {
   const [reviews, setReviews] = useState([]); // 리뷰 데이터를 저장할 상태 변수
   const [filter, setFilter] = useState('latest'); // 기본 정렬 기준은 '최신순'
   const [showPhotoReviews, setShowPhotoReviews] = useState(false); // 포토/동영상 리뷰만 보기 옵션의 상태 변수
+  const [posts,setPosts] = useState('');
+  const [loading,setLoading]= useState('');
 
   useEffect(() => {
-    // backend의 리뷰 데이터를 가져오기
-    axios
-      .get() 
-      .then((res) => {
-        console.log(res)
-        setReviews(res.data); // 가져온 데이터를 setReviews에 저장 설정.
-      })
-      .catch((error) => {
-        console.error('Error fetching reviews:', error); // 데이터 가져오기 실패 시 에러를 출력합니다.
-      });
-  }, []);
+    const fetchReviews=async()=>{
+      try{
+        console.log('asdfasdf')
+        const response =await
+      // backend의 리뷰 데이터를 가져오기
+      axios
+        .get('http://localhost:5000/user/ReviewList')
+        console.log('success')
+        setPosts(response.data.data);
+      }
+        catch(error){console.error(' error occurred while loading reviews.',error);
+        }finally{
+          setLoading(false); //로딩받아오면 로딩 해제 
+        }};
+        fetchReviews();
+      },[]);
+
 
   const handleFilterChange = (filter) => {
     setFilter(filter); // 선택한 필터로 상태를 업데이트합니다.
@@ -65,6 +73,6 @@ const ReviewList = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ReviewList;
