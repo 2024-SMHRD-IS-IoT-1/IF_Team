@@ -9,18 +9,19 @@ const fileStore = require('session-file-store')(session);
 
 // cors 설정 ( 도메인 주소가 달라도 일치 시킬 수 있음)
 const cors = require('cors')
+app.use(cors());
+app.use(bp.urlencoded({extended : true})); 
+app.use(express.json());
+app.use("/user",userRouter);
 app.use(session({
     httpOnly: true,
     resave: false,
     secret: 'secret',
     store: new fileStore(),
     saveUninitialized: false,
-    expires: new Date(Date.now() + (60 * 60 * 24 * 7 * 1000)),
+    expires: new Date(Date.now() + (60 * 60 * 1 ))
 }));
-app.use(cors());
-app.use(bp.urlencoded({extended : true})); 
-app.use(express.json());
-app.use("/user",userRouter);
+
 
 // 메인페이지 경로 설정 
 /*const Router = require('./routes/userRouter')
@@ -47,3 +48,8 @@ app.listen(app.get('port'), ()=>{
     
 
 })
+
+
+
+
+
