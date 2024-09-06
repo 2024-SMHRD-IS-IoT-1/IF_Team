@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 function ReviewWrite() {
-    const handleReviewWriteSubmit = (e) => {
-     e.preventDefault();
-     const reviewdata = {
-    
-     }
-     console.log(reviewdata)
-     axios.post('http://localhost:5000/user/Login', reviewdata)
+    // 선호도 조사(preference)에 대한 상태
+    const [preference1, setPreference1] = useState('');
+    const [preference2, setPreference2] = useState('');
+    const [preference3, setPreference3] = useState('');
+
+    const handlePreferenceCilck = (setPreference, value) => {
+        setPreference(value); //선택된 값으로 상태를 업데이트
     }
+    
+
   return (
     <div className='reviewwrite-container'>
         <div className='reviewwrite-header'>
@@ -26,12 +28,9 @@ function ReviewWrite() {
             {/* 리뷰 선택 작성  */}
             <div className='chioce-contents'>
                 <h1 className='reviewwrite-preference'>선호도 조사 (선택)</h1>
-                
-                <div id='Question_1'> 제품 사용 후 변화가 있었나요? </div>
-                <div id = 'Question_2'> 제품 디자인에 만족하나요? </div>
-                <div id = 'Question_3'> 제품 기능에 만족하나요? </div>
-                <div id = 'Question_4'> 제품에 ? </div>
-            </div>
+                <label id= 'Question_1' type = 'radio' checked = {reviewwrite-preference ==='' }> 제품 사용 후 변화가 있었나요? </label>
+                <label id ='Question_2' type = 'radio' checked = {reviewwrite-preference === ''}> 제품 디자인에 만족하나요? </label>
+                <label id ='Question_3' type = 'radio' checked = {reviewwrite-preference === ''}> 제품 기능에 만족하나요? </label>            </div>
         </div>
         
     </div>
@@ -39,3 +38,4 @@ function ReviewWrite() {
 
   )
 }
+export default ReviewWrite; 
