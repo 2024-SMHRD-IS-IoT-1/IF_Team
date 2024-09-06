@@ -6,19 +6,17 @@ const ReviewList = () => {
   const [reviews, setReviews] = useState([]); // 리뷰 데이터를 저장할 상태 변수
   const [filter, setFilter] = useState('latest'); // 기본 정렬 기준은 '최신순'
   const [showPhotoReviews, setShowPhotoReviews] = useState(false); // 포토/동영상 리뷰만 보기 옵션의 상태 변수
-  const [posts,setPosts] = useState('');
-  const [loading,setLoading]= useState('');
+  const [loading,setLoading]= useState(true);
 
   useEffect(() => {
     const fetchReviews=async()=>{
       try{
         console.log('asdfasdf')
-        const response =await
       // backend의 리뷰 데이터를 가져오기
-      axios
+        const response = await axios
         .get('http://localhost:5000/user/ReviewList')
-        console.log('success')
-        setPosts(response.data.data);
+        console.log('success',response.data.data);
+        setReviews(response.data.data);
       }
         catch(error){console.error(' error occurred while loading reviews.',error);
         }finally{
@@ -33,38 +31,29 @@ const ReviewList = () => {
     // 추가적으로 정렬을 처리하는 로직을 여기에 추가할 수 있습니다.
   };
 
-  const togglePhotoReviews = () => {
-    setShowPhotoReviews(!showPhotoReviews); // 포토/동영상 리뷰 모드 토글
-  };
+
 
   return (
     <div className="review-list-container">
       <h2>리뷰 {reviews.length}</h2>
       <div className="review-filter">
-        <label>
-          <input
-            type="checkbox"
-            checked={showPhotoReviews}
-            onChange={togglePhotoReviews}
-          />
-          포토/동영상 리뷰 모아보기
-        </label>
         <button onClick={() => handleFilterChange('recommendation')}>추천순</button>
         <button onClick={() => handleFilterChange('latest')}>최신순</button>
         <button onClick={() => handleFilterChange('highest')}>별점 높은 순</button>
       </div>
       <div className="reviews">
-        {reviews.map((review, index) => (
+        {reviews.map((data, index) => (
+          console.log(data.user_id),
           <div key={index} className="review-item">
             <div className="review-stars">
-              {'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}
+              {'★'.repeat(data.feedback_rating)}{'☆'.repeat(5 - data.feedback_rating)}
             </div>
             <div className="review-user">
-              {review.username.slice(0, 1)}**
+              {data.user_id.slice(0, 1)}**
             </div>
             
-            <div className="review-date">{review.created_at}</div>
-            <div className="review-content">{review.content}</div>
+            <div className="review-date">{data.created_at}</div>
+            <div className="review-content">{data.feedback_content}</div>
             <div className="review-actions">
               <span>1</span>
               <button>신고</button>
@@ -76,4 +65,4 @@ const ReviewList = () => {
   );
 }
 
-export default ReviewList;
+export default ReviewList; 

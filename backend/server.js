@@ -18,7 +18,7 @@ app.use(session({
     secret: 'secret',
     store: new fileStore(),
     saveUninitialized: false,
-    expires: new Date(Date.now() + (60 * 60 * 1 ))
+    expires: new Date(Date.now() + (60 * 60))
 }));
 
 // 메인페이지 경로 설정 
