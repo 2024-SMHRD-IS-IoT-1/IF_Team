@@ -62,6 +62,7 @@ const ReviewList = () => {
             <div className="review-user">
               {review.username.slice(0, 1)}**
             </div>
+            
             <div className="review-date">{review.created_at}</div>
             <div className="review-content">{review.content}</div>
             <div className="review-actions">

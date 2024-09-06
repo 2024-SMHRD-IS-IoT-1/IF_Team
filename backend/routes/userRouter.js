@@ -205,4 +205,39 @@ router.post("/delete",(req,res)=>{
     }
 })*/
 
+// 다영 수정 중!!!!!!!!!!!!!!👀👀👀👀
+// ReviewWrite 기능 라우터 
+router.post("/ReveiwWrite", (req, res)=> {
+    res.json(Review_data); // 데이터를 json 형식으로 반환
+    console.log(req.body);
+    let {feedback_idx, user_id, feedback_content, feedback_ratings, created_at} = req.body;
+        // SQL쿼리 작성
+        let sql = "INSERT INTO tb_feedback( feedback_idx, user_id, feedback_content, feedback_ratings, created_at) VALUES (?,?,?,?,NOW())";
+        
+        // where user_id and feed_idx"
+        conn.query(sql,[feedback_idx, user_id, feedback_content, feedback_ratings, created_at],(err,result)=> {
+            if(err) {
+                console.error('리뷰 작성 오류 발생:', err);
+                return res.status(500),json({message: "다시 작성해주세요", error: err.message});  
+            }
+            console.log('Result', result);
+            try {
+            if (result.affectedRows > 0) {
+                res.json({ message : "소중한 리뷰 감사합니다.💕😃"});
+            } else {
+                res.json ({ message : "리뷰가 작성되지 않았어요..ㅠㅠㅠ"});
+            }} catch {
+                console.log(err);
+            }
+        });
+    });
+
+    
+  
+   
+
+
+
+
+
 module.exports = router;

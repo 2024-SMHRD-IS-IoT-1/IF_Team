@@ -1,22 +1,22 @@
 import React, {useState, useEffect}from 'react'
 import { BrowserRouter } from 'react-router-dom';
 import { navigate,useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
-
-// css 
+// css 불러옴
 import '../../css/feedbackmain.css';
 import '../../App.css';
 
+// 페이지 이동
 function FeedbackMain() {
   const navigate = useNavigate(); // useNavigate 훅 사용
-  
   const handleReviewListClick = () => {
     navigate('/ReviewList'); 
   }
   
+
   return (
     <div className="feedbackmain-container">
       <header className="feedbackmain-header">
-        <h1>Comments</h1>
+        <h1>Review</h1>
         <p>사용자들의 다양한 후기를 들어보세요 🌈</p>
         <div onClick={handleReviewListClick} className="feedbackmain-link"> 더 많은 사용자 후기 보러가기 ▶ </div>
       </header>
