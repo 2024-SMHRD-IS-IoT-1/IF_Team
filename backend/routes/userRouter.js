@@ -24,15 +24,15 @@ router.post("/Signup", (req, res) => {
 
     conn.query(sql, [user_id,user_pw,user_name,user_email], (err, result) => {
         if (err) {
-            console.error('회원가입 중 오류 발생:', err);
-            return res.status(500).json({ message: "회원가입 실패", error: err.message });
+            console.error('error:', err);
+            return res.status(500).json({ message: "failed", error: err.message });
         }
         console.log('Result:', result);
         try {
         if (result.affectedRows > 0) {
-            res.json({ message: "회원가입 성공" });
+            res.json({ message: "success" });
         } else {
-            res.json({ message: "회원가입 실패" });
+            res.json({ message: "failed" });
         }}catch{
             console.log(err);
         }
@@ -50,10 +50,10 @@ router.post("/Login",(req,res)=>{
             console.log(err);
             return res.status(500).json({ message: "failed"});
         }
+        console.log(rows)
 
         if(rows.length>0){
             // 로그인 성공 시 세션에 사용자 ID 저장
-            console.log(rows)
             req.session.user_id = user_id;
             res.json({message: "success"})
         }else{
@@ -69,6 +69,17 @@ router.get("/Login", (req, res) => {
       res.status(401).json({ message: "로그인이 필요합니다." });
     }
   });
+
+  //리뷰 라우터 
+  router.get('/ReviewList', async (req, res) => {
+    let sql ='select * from tb_feedback where feedback_idx IS NOT NULL AND user_id IS NOT NULL'
+    conn.query(sql,(err,review_list)=>{
+        if(err){
+            return res.status(500).json({error:"review_list error"})
+        }
+        res.json({data:review_list});
+        });
+    });
 
 /*// 비밀번호 찾기
 const transporter = nodemailer.createTransport({
@@ -193,5 +204,40 @@ router.post("/delete",(req,res)=>{
         res.send('<script>alert("탈퇴 실패");window.location.href="/"</script>')
     }
 })*/
+
+// 다영 수정 중!!!!!!!!!!!!!!👀👀👀👀
+// ReviewWrite 기능 라우터 
+router.post("/ReveiwWrite", (req, res)=> {
+    res.json(Review_data); // 데이터를 json 형식으로 반환
+    console.log(req.body);
+    let {feedback_idx, user_id, feedback_content, feedback_ratings, created_at} = req.body;
+        // SQL쿼리 작성
+        let sql = "INSERT INTO tb_feedback( feedback_idx, user_id, feedback_content, feedback_ratings, created_at) VALUES (?,?,?,?,NOW())";
+        
+        // where user_id and feed_idx"
+        conn.query(sql,[feedback_idx, user_id, feedback_content, feedback_ratings, created_at],(err,result)=> {
+            if(err) {
+                console.error('리뷰 작성 오류 발생:', err);
+                return res.status(500),json({message: "다시 작성해주세요", error: err.message});  
+            }
+            console.log('Result', result);
+            try {
+            if (result.affectedRows > 0) {
+                res.json({ message : "소중한 리뷰 감사합니다.💕😃"});
+            } else {
+                res.json ({ message : "리뷰가 작성되지 않았어요..ㅠㅠㅠ"});
+            }} catch {
+                console.log(err);
+            }
+        });
+    });
+
+    
+  
+   
+
+
+
+
 
 module.exports = router;

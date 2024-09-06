@@ -27,9 +27,9 @@ const ProductPage = () => {
           <button className="login-button">로그인</button>
         </div>
       </header>
-
+      
       <div className="product-content">
-        {/* Main Product Image */}
+        {/* div 태그로 한번에 묶여야 이미지 밑에로 버튼 생김*/}
         
         <div>
              {/* Main Product Image */}
@@ -38,7 +38,7 @@ const ProductPage = () => {
         
         <div className="details-toggle-container">
           <button onClick={toggleDetails} className="toggle-details-button">
-            {isDetailsOpen ? '상세정보 닫기' : '상세정보 열기'}
+            {isDetailsOpen ? '상품정보 닫기' : '상품정보 열기'}
           </button>
         </div>
 
@@ -70,10 +70,10 @@ const ProductPage = () => {
           </div>
         </div>
 
-        {/* 상세정보 내용 */}
+        {/* 상세정보 내용 이미지 */}
         {isDetailsOpen && (
           <div className="details-content">
-            <h3>상세정보</h3>
+            <h3>상품정보</h3>
             <img src={img2} alt="Product" className="product-image" />
             <img src={img3} alt="Product" className="product-image" />
             <img src={img4} alt="Product" className="product-image" />

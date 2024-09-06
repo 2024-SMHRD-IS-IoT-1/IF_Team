@@ -23,6 +23,7 @@ function LoginPage() {
       user_id : user_id.current.value,
       user_pw : user_pw.current.value,
     }
+    console.log(formData)
     axios.post('http://localhost:5000/user/Login', formData)
       .then(response => {
         if(response.data.message==='success'){ 
