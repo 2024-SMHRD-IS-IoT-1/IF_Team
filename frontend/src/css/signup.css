@@ -1,8 +1,10 @@
 /* Container */
 
 .container .text{
-    color : #3c009d;
+    color : #3b82f6;
     font-size: 50px;
+    font-family: 'HSGooltokki';
+    letter-spacing: 10px;
     font-weight: bold;
     text-align: center ;
     margin : 0 auto;
@@ -27,9 +29,10 @@
     text-align: center;
     width: 400px;
     height: 5px;
-    background :#3c009d;
+    background: linear-gradient(to right, #3b82f6, #9ec0f8, #c7dcfd, rgb(240, 238, 255));
     border-radius: 9px;
     margin-top: 5%;
+    margin : 0 auto;
 }
 
 
@@ -37,6 +40,11 @@
  .input-container {
     position: relative;
     background-color: #ffffff;
+    flex-direction: column;
+    text-align:center;
+    
+    
+ 
 }
 .input-container input {
     width: 60%;
@@ -62,21 +70,58 @@
 .submit-container{
     display: flex;
     gap : 30px;
-    margin: 60px auto;
+    width: 100%;
+    flex-direction: column;
+    text-align:center;
 }
 
 .submit{
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 220px;
-    height: 60px;
+    height: 70px;
+    margin: 60px auto;
     color: #fff;
-    background-color: #4c00b4;
+    background-color: #00000079;
     border-radius: 50px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     border: none;
     outline: none;
+    letter-spacing: 5px;  /*글자간격*/
+}
+.submit:hover{
+    background: #3b82f6;
+}
+
+#signup-homesubmit{
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 70px;
+    margin: 30px auto;
+    color: #fff;
+    background-color: #00000079;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    
+    cursor: pointer;
+    border: none;
+    outline: none;
+    letter-spacing: 5px;
+}
+#signup-homesubmit:hover{
+    background: #3b82f6;
+}
+
+.underline{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 400px;
+    height: 3px;
+    background: lightgray;
+    
 }

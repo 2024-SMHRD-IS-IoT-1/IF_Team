@@ -60,7 +60,7 @@ function LoginPage() {
     <div className="login-container" >
         <div className='login-header'>
          <h2 id='login-title'>Login </h2>
-         <div id='underline'></div>
+         <div id='login-underline'></div>
          </div>
        <form onSubmit={ handleLogin}>
           <div className="login-formgroup">
@@ -91,8 +91,10 @@ function LoginPage() {
            <br></br>
            <hr />
            
-          {/* Login 버튼 */}
-           <button type="submit">Login</button>
+         
+          
+           {/* Login 버튼 */}
+          <button className='login-button'>Login</button>
 
            {/* ID/PW 찾기 버튼  */}
            <div className='login-additional-links'>
@@ -104,6 +106,7 @@ function LoginPage() {
               Forgot PW? 비밀번호 찾기
               </div>
             </div>
+           
        </form>
        
      </div>

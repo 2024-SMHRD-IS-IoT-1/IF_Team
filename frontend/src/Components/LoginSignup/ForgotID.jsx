@@ -35,7 +35,7 @@ const ForgotID =()=> {
     <div className="forgot_id-container">
       <div className='forgot_id-header'>
       <h2 id="forgot_id-title"> Forgot ID? </h2>
-      <div id='underline'></div>
+      <div id='forgot_id-underline'></div>
       </div>
 
       <form onSubmit={handlePasswordReset}>
@@ -87,7 +87,7 @@ const ForgotID =()=> {
         <br />
       
 
-        <button type="submit">아이디 찾기</button>
+        <button className='forgotid-btn'>아이디 찾기</button>
          {/* ID/PW 찾기 버튼  */}
          <div className='forgot_id-additional_links'>
               <div onClick={handleLogin} id='login-link'>
