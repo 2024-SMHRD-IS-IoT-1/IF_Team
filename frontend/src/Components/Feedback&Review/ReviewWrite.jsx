@@ -25,30 +25,112 @@ function ReviewWrite() {
                 <div className='reviewwrite-text'>Review 내용 작성하기</div>
             </div>  
             <hr />
+            
             {/* 리뷰 선택 작성  */}
             <div className='chioce-contents'>
                 <h1 className='reviewwrite-preference'>선호도 조사 (선택)</h1>
-                {/* 질문 */}
-                <p> 제품 사용 후 변화가 있었나요? </p>
-                <label>
-                <input id= 'Question_1' type = 'radio' value = '만족' checked = {preference1 === '만족' } onChange = {()=>handlePreferenceCilck(setPreference1, 만족)}> 보통 </input>
-                </label>
+         
+          {/* 질문 1 */}
+            <div className='question'>
+             <p>제품 사용 후 변화가 있었나요?</p>
+            <label>
+            <input
+            type='radio'
+            value='만족'
+            checked={preference1 === '만족'}
+            onChange={() => handleChange(setPreference1, '만족')}
+            />
+            만족
+             </label>
+            <label>
+            <input
+            type='radio'
+            value='보통'
+            checked={preference1 === '보통'}
+            onChange={() => handleChange(setPreference1, '보통')}
+          />
+          보통
+        </label>
+        <label>
+          <input
+            type='radio'
+            value='불만족'
+            checked={preference1 === '불만족'}
+            onChange={() => handleChange(setPreference1, '불만족')}
+          />
+          불만족
+        </label>
+      </div>
 
-                <p>제품 디자인에 만족하나요? </p>
-                <label> 
-                <input id ='Question_2' type = 'radio' value = '보통' checked = {preference2 === '보통'} onChange = {()=>handlePreferenceCilck(setPreference2, 보통)}> 보통 </input>
-                </label>
+      {/* 질문 2 */}
+      <div className='question'>
+        <p>제품 디자인에 만족하나요?</p>
+        <label>
+          <input
+            type='radio'
+            value='만족'
+            checked={preference2 === '만족'}
+            onChange={() => handleChange(setPreference2, '만족')}
+          />
+          만족
+        </label>
+        <label>
+          <input
+            type='radio'
+            value='보통'
+            checked={preference2 === '보통'}
+            onChange={() => handleChange(setPreference2, '보통')}
+          />
+          보통
+        </label>
+        <label>
+          <input
+            type='radio'
+            value='불만족'
+            checked={preference2 === '불만족'}
+            onChange={() => handleChange(setPreference2, '불만족')}
+          />
+          불만족
+        </label>
+      </div>
 
-                <p>제품 기능에 만족하나요?</p>
-                <label>
-                <input id ='Question_3' type = 'radio' value = '불만족' checked = {preference3 === '불만족'} onChange = {()=>handlePreferenceCilck(setPreference3, 불만족)}> 불만족 </input>
-                </label>
+      {/* 질문 3 */}
+      <div className='question'>
+        <p>제품 기능에 만족하나요?</p>
+        <label>
+          <input
+            type='radio'
+            value='만족'
+            checked={preference3 === '만족'}
+            onChange={() => handleChange(setPreference3, '만족')}
+          />
+          만족
+        </label>
+        <label>
+          <input
+            type='radio'
+            value='보통'
+            checked={preference3 === '보통'}
+            onChange={() => handleChange(setPreference3, '보통')}
+          />
+          보통
+        </label>
+        <label>
+          <input
+            type='radio'
+            value='불만족'
+            checked={preference3 === '불만족'}
+            onChange={() => handleChange(setPreference3, '불만족')}
+          />
+          불만족
+        </label>
+        </div>
+
             </div>
         </div>
-        
-    </div>
-   
+      </div>
+  
+  );
+  };
 
-  )
-}
 export default ReviewWrite; 
