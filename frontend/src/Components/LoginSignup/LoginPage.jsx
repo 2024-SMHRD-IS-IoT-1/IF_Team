@@ -51,7 +51,9 @@ function LoginPage() {
   const handleForgotID = () => {
     navigate('/forgot-id'); // ForgotID 페이지로 이동
   };
-
+  const handleHomePageClick = () => {
+    navigate('/homepage');
+  }
   const handleForgotPW = () => {
     navigate('/forgot-password'); // ForgotPW 페이지로 이동
   };
@@ -62,7 +64,7 @@ function LoginPage() {
          <h2 id='login-title'>Login </h2>
          <div id='login-underline'></div>
          </div>
-       <form onSubmit={ handleLogin}>
+       <form onSubmit={handleLogin}>
           <div className="login-formgroup">
               <div id='ID'>
                 <FaUser size={20}/> 
@@ -82,20 +84,14 @@ function LoginPage() {
                   ref={user_pw}
                   placeholder='비밀번호를 입력하세요'
                  /> 
-           </div>
-          
-
-           <br></br>
-           <br></br>
-           <br></br>
-           <br></br>
-           <hr />
-           
-         
+           </div> 
           
            {/* Login 버튼 */}
+          <div className='login-button-link'>
           <button className='login-button'>Login</button>
-
+          <div id='btn-underline'></div>
+          <button className='login-homebutton' onClick={handleHomePageClick}>Home</button>
+          </div>
            {/* ID/PW 찾기 버튼  */}
            <div className='login-additional-links'>
               <div onClick={handleForgotID} id='link-id'>

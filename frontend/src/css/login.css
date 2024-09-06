@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   width: 1000px; /* 고정된 너비 설정 */
-  height: 1000px; /* 고정된 높이 설정 */
+  height: 800px; /* 고정된 높이 설정 */
   position: relative; /* 절대 위치 요소의 기준이 되도록 설정 */
   }
   /* 로그인 헤더 */
@@ -38,13 +38,12 @@
   /* 로그인 폼 그룹 스타일 */
   .login-formgroup {
     position: relative;
-    
     display: flex;
     flex-direction: column;
-    width: 300px; /* 부모 크기에 맞게 설정 */
+    width: 400px; /* 부모 크기에 맞게 설정 */
+    text-align: center;
     
   }
-  
   .login-formgroup div {
     display: flex;
     align-items: center;
@@ -53,7 +52,7 @@
   
   .login-formgroup input {
     height: 40px;
-    width: calc(100% - 10px); /* 아이콘 공간을 제외한 너비 */
+    width: calc(80% - 00px); /* 아이콘 공간을 제외한 너비 */
     border: none;
     outline: none;
     background-color: transparent;
@@ -62,16 +61,20 @@
     margin-left: 10px; /* 아이콘과의 간격 조정 */
     font-size: 20px;
     padding: 10px 20px;
-    margin-bottom: 10px; /* input 간의 간격 확장 */
+    margin-bottom: 20px; /* input 간의 간격 확장 */
+
+    
   }
   
   /* 로그인 버튼 스타일 */
-  .login-button {
-    justify-content: center;
+  .login-button-link{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 220px;
-    height: 70px;
-    margin: 60px auto;
+  }
+  .login-button {
+    width: 250px;
+    height: 70px; 
     color: #fff;
     background-color: #00000079;
     border-radius: 50px;
@@ -81,8 +84,33 @@
     border: none;
     outline: none;
     letter-spacing: 5px;  /*글자간격*/
+    position: absolute;
+    top : 650px;
   }
-  
+#btn-underline {
+  position: absolute;
+  top: 750px;
+  width: 400px; /* 줄 길이 조정 */
+  height: 1px;
+  background: lightgray;
+  border-radius: 10px;
+  }
+.login-homebutton {
+  width: 250px;
+  height: 70px;
+  margin: 60px auto;
+  color: #fff;
+  background-color: #00000079;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  letter-spacing: 5px;  /*글자간격*/
+  position: absolute;
+  top : 720px
+}
 .login-button:hover {
     background-color: #3b82f6;
   }
@@ -97,7 +125,7 @@
     font-family: 'Cafe24Decoschool';
     font-size: 16px;
     position: absolute; /* 위치를 절대값으로 설정 */
-    top: 700px;; /* 버튼 바로 위에 위치 */
+    top: 830px;; /* 버튼 바로 위에 위치 */
     left: 50%; /* 수평 중앙 정렬 */
     transform: translateX(-50%); /* 수평 중앙 정렬 */
     display: flex;
