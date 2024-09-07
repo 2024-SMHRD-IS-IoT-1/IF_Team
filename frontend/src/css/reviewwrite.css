@@ -1,0 +1,21 @@
+.reviewwrite-container{
+    width: 80%;
+    margin: auto;
+    display: block;
+    background-color: aquamarine;
+}
+
+.reviewwrite-title{
+    font-size: 60px;
+    font-family:'HSGooltokki' ;
+    color: #000000;
+    line-height: 2; /*위아래 간격*/
+    letter-spacing: 10px; /*글자간격*/
+    text-align: center;
+}
+
+.reviewwrite-rating {
+   
+    position:relative;
+    background-image:url(https://hsecode.github.io/images_codepen/codepen_sp_star.png) 0 0 no-repeat;
+    font-size:0;}

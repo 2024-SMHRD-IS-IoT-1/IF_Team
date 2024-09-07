@@ -1,4 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import '../../css/reviewwrite.css'
+import { FaStar } from "react-icons/fa";
+import { FaStarHalf } from "react-icons/fa";
 
 
 function ReviewWrite() {
@@ -7,21 +11,27 @@ function ReviewWrite() {
     const [preference2, setPreference2] = useState('');
     const [preference3, setPreference3] = useState('');
 
+    //리뷰선호도 조사 질문선택하기
     const handlePreferenceCilck = (setPreference, value) => {
         setPreference(value); //선택된 값으로 상태를 업데이트
     };
     
+   // 별점구현하기
+ 
+
 
   return (
     <div className='reviewwrite-container'>
         <div className='reviewwrite-header'>
-            <h1 className='reviewwrite-title'>Review 작성하기</h1>
+            <h1 className='reviewwrite-title'>Review 및 평가</h1>
         </div>
         
         <div className='reviewwrite-contents'>
             {/* 리뷰 필수 작성*/}
             <div className='requisite-contents'>
-                <div className='reviewwrite-rating'>별점 구현</div>
+                <div className='reviewwrite-rating'>별점을 선택해주세요. 0/5</div>
+                  
+                    
                 <div className='reviewwrite-text'>Review 내용 작성하기</div>
             </div>  
             <hr />
