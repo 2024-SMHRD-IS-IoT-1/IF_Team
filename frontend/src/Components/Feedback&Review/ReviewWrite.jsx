@@ -6,18 +6,23 @@ import { FaStarHalf } from "react-icons/fa";
 
 
 function ReviewWrite() {
-    // 선호도 조사(preference)에 대한 상태
+
+  //별점 구현하기
+
+  //리뷰작성하기 
+
+  
+
+  // 선호도 조사(preference)에 대한 상태
     const [preference1, setPreference1] = useState('');
     const [preference2, setPreference2] = useState('');
     const [preference3, setPreference3] = useState('');
-
     //리뷰선호도 조사 질문선택하기
     const handlePreferenceCilck = (setPreference, value) => {
         setPreference(value); //선택된 값으로 상태를 업데이트
     };
     
-   // 별점구현하기
- 
+
 
 
   return (
