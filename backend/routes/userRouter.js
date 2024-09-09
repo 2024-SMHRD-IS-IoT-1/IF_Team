@@ -43,7 +43,6 @@ router.post("/Signup", (req, res) => {
 router.post("/Login",(req,res)=>{
     console.log('user login router', req.body)
     let {user_id,user_pw} = req.body
-
     let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?"
     conn.query(sql,[user_id,user_pw],(err,rows)=>{
         if (err) {
@@ -62,15 +61,64 @@ router.post("/Login",(req,res)=>{
 
     });
 })
-router.get("/Login", (req, res) => {
-    if (req.session.user_id) {
-      res.json({ user_id: req.session.user_id });
-    } else {
-      res.status(401).json({ message: "로그인이 필요합니다." });
-    }
-  });
+// //로그아웃 라우터 
+// router.post("/logout", (req, res) => {
+//     req.session.destroy((err) => {
+//         if (err) {
+//             return res.status(500).json({ message: "Failed to log out" });
+//         }
+//         res.json({ message: "Logout successful" });
+//     });
+// });
+// // 세팅페이지 접속할 때 로그인 했는지 확인 
+// router.get("/Setting", (req, res) => {
+//     if (req.session.user_id) {
+//       res.json({ user_id: req.session.user_id });
+//     } else {
+//       res.status(401).json({ message: "로그인이 필요합니다." });
+//     }
+//   });
 
+<<<<<<< HEAD
+//   //리뷰작성 페이지 접속할때 로그인 했는지 확인 
+//   router.get('/ReviewWrite', (req, res) => {
+//     console.log('Session',req.session);
+//     if (req.session.user_id) {
+//       res.json({ user_id: req.session.user_id });
+//     } else {
+//       res.status(401).json({ message: 'please Login' });
+//     }
+//   });
+
+  // 리뷰작성 데이터를 데이터베이스로 이동 
+  router.get('/ReviewWrite',(req,res)=>{
+    const user_id=req.session.user_id;
+    if(!user_id){
+        return res.status(401).json({message:'please login'})
+    }
+    console.log(req.body)
+    let {feedback_ratings,feedback_content}=req.body
+    let sql = '"INSERT INTO tb_feedback (feedback_idx,user_id,feedback_content,feedback_ratings,created_at) VALUES (?, ?, ?, ?,NOW())";'
+    conn.query(sql, [user_id, feedback_content, feedback_ratings], (err, result) => {
+        if (err) {
+            console.error('error:', err);
+            return res.status(500).json({ message: "failed", error: err.message });
+        }
+        console.log('Result:', result);
+        try {
+        if (result.affectedRows > 0) {
+            res.json({ message: "success" });
+        } else {
+            res.json({ message: "failed" });
+        }}catch{
+            console.log(err);
+        }
+    });
+  })
+  //리뷰 라우터 
+=======
   //전체 리뷰 라우터 
+>>>>>>> 375d98ead6dbf0b745d610f29d04bc100dc32da4
   router.get('/ReviewList', async (req, res) => {
     let sql ='select * from tb_feedback where feedback_idx IS NOT NULL AND user_id IS NOT NULL'
     conn.query(sql,(err,review_list)=>{
@@ -87,8 +135,8 @@ router.get("/Login", (req, res) => {
 const transporter = nodemailer.createTransport({
     service: 'gmail', // 사용하려는 이메일 서비스 (예: gmail, yahoo 등)
     auth: {
-        user: 'kimsj020406@gmail.com',
-        pass: 'bjk92040769@'
+        user: '',
+        pass: '
     }
 });
 app.post('/find-userpw', (req, res) => {
@@ -110,7 +158,7 @@ app.post('/find-userpw', (req, res) => {
     
                     // 이메일 발송
                     const mailOptions = {
-                        from: 'kimsj020406@gmail.com',
+                        from: '',
                         to: email,
                         subject: '임시 비밀번호 발송',
                         text: 안녕하세요, ${name}님.\n\n요청하신 임시 비밀번호는 다음과 같습니다: ${temporaryPassword}\n\n로그인 후 비밀번호를 변경해 주세요.
@@ -152,7 +200,7 @@ app.post('/find-username', (req, res) => {
 
             // 이메일 발송
             const mailOptions = {
-                from: 'kimsj020406@gmail.com',
+                from: '',
                 to: email,
                 subject: '아이디 찾기 결과',
                 text: 안녕하세요, ${name}님.\n\n요청하신 아이디는 다음과 같습니다: ${user_id}\n\n감사합니다.

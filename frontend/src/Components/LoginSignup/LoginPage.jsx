@@ -27,8 +27,9 @@ function LoginPage() {
     axios.post('http://localhost:5000/user/Login', formData)
       .then(response => {
         if(response.data.message==='success'){ 
-        console.log('Login successful:', response.data);
+        console.log('Login successful:', response.data.user_id);
         setLoginUserId(response.data.user_id); // 로그인 성공 시 user_id 저장
+        alert('로그인 성공')
           navigate('/homepage'); // 로그인 성공 후 페이지 이동
         } else {
           alert('로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.');

@@ -13,13 +13,23 @@ app.use(cors());
 app.use(bp.urlencoded({extended : true})); 
 app.use(express.json());
 app.use(session({
-    httpOnly: true,
-    resave: false,
     secret: 'secret',
-    store: new fileStore(),
+    resave: false,
     saveUninitialized: false,
-    expires: new Date(Date.now() + (60 * 60))
+    store: new fileStore(),
+    cookie: {
+        httpOnly: true,          // 클라이언트 측에서 쿠키에 접근하지 못하도록 설정
+        maxAge: 60 * 60 * 1000  // 1시간 동안 쿠키 유효 
+    }
 }));
+// app.use(session({
+//     httpOnly: true,
+//     resave: false,
+//     secret: 'secret',
+//     store: new fileStore(),
+//     saveUninitialized: false,
+//     expires: new Date(Date.now() + (60 * 60))
+// }));
 
 // 메인페이지 경로 설정 
 /*const Router = require('./routes/userRouter')
@@ -42,6 +52,14 @@ app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
 // 이거 다른곳으로 옮기면 안되니까 주의 할 것 
 app.use("/user",userRouter);
 // 포트 설정 
+// 로그인 상태 확인 라우트
+app.get('/api/checkSession', (req, res) => {
+    if (req.session.user_id) {
+      res.json({ loggedIn: true, user_id: req.session.user_id });
+    } else {
+      res.json({ loggedIn: false });
+    }
+  });
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), ()=>{
     console.log(`Server is running on ${app.get('port')}`);

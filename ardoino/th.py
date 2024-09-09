@@ -19,4 +19,4 @@ def update():
     return 'Data updated successfully!'
 
 if __name__ == '__main__':
-    app.run(host='192.168.219.57', port=5000)
+    app.run(host='192.168.219.67', port=5000)
