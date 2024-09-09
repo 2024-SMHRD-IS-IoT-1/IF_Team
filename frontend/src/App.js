@@ -10,6 +10,7 @@ import Recommend from './Components/LoginSignup/Recommend';
 import InfoModal from './Components/InfoModal'
 import Main from './Components/LoginSignup/Main';
 import FeedbackMain from './Components/Feedback&Review/FeedbackMain';
+import Setting from './Components/Setting';
 
 //다영feedback&Review 
 import ReviewList from './Components/Feedback&Review/ReviewList';
@@ -28,6 +29,8 @@ function App() {
       <Route path="/FeedbackMain" element={<FeedbackMain />} />
       <Route path="/ReviewList" element={<ReviewList />} />
       <Route path='/ReviewWrite' element={<ReviewWrite />} />
+      <Route path='/Setting' element={<Setting />} />
+
     </Routes>
   );
 }

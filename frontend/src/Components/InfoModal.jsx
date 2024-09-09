@@ -2,9 +2,18 @@
 import React, { useState } from 'react';
 import '../css/infomodal.css';
 import img from '../assets/product.png';
-import img2 from '../assets/product2.png';
-import img3 from '../assets/product3.png';
-import img4 from '../assets/product4.png';
+import img1 from '../assets/product1.png'
+import img2 from '../assets/product2.png'
+import img3 from '../assets/product3.png'
+import img4 from '../assets/product4.jpg'
+import img5 from '../assets/product5.png'
+import img6 from '../assets/product6.png'
+import img7 from '../assets/product7.png'
+import img8 from '../assets/product8.png'
+import img9 from '../assets/product9.png'
+
+
+
 
 const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
@@ -27,26 +36,20 @@ const ProductPage = () => {
           <button className="login-button">로그인</button>
         </div>
       </header>
-      
+
       <div className="product-content">
-        {/* div 태그로 한번에 묶여야 이미지 밑에로 버튼 생김*/}
-        
         <div>
-             {/* Main Product Image */}
-             <img src={img} alt="Product" className="product-image" />
-               {/* 상세정보 열기/닫기 버튼을 이미지 바로 아래로 이동 */}
-        
-        <div className="details-toggle-container">
-          <button onClick={toggleDetails} className="toggle-details-button">
-            {isDetailsOpen ? '상품정보 닫기' : '상품정보 열기'}
-          </button>
+          {/* Main Product Image */}
+          <img src={img} alt="Product" className="product-image" />
+          
+          {/* 상세정보 열기/닫기 버튼을 이미지 바로 아래로 이동 */}
+          <div className="details-toggle-container">
+            <button onClick={toggleDetails} className="toggle-details-button">
+              {isDetailsOpen ? '상품정보 닫기' : '상품정보 열기'}
+            </button>
+          </div>
         </div>
 
-        </div>
-        
-       
-
-      
         <div className="product-details">
           <h2 className="product-category">Set the Perfect Mood</h2>
           <h1 className="product-title">플렌테리어 무드등</h1>
@@ -70,13 +73,22 @@ const ProductPage = () => {
           </div>
         </div>
 
-        {/* 상세정보 내용 이미지 */}
+        {/* Scrollable 상세정보 내용 이미지 */}
         {isDetailsOpen && (
-          <div className="details-content">
+          <div className="details-content scrollable-container">
             <h3>상품정보</h3>
-            <img src={img2} alt="Product" className="product-image" />
-            <img src={img3} alt="Product" className="product-image" />
-            <img src={img4} alt="Product" className="product-image" />
+            <div className="scrollable-images">
+             <img src={img1} alt="Product" className="product-detail-image" /> 
+              <img src={img2} alt="Product" className="product-detail-image" />
+              <img src={img3} alt="Product" className="product-detail-image" />
+              <img src={img4} alt="Product" className="product-detail-image" />
+              <img src={img5} alt="Product" className="product-detail-image" />
+              <img src={img6} alt="Product" className="product-detail-image" />
+              <img src={img7} alt="Product" className="product-detail-image" />
+              <img src={img8} alt="Product" className="product-detail-image" />
+              <img src={img9} alt="Product" className="product-detail-image" />
+            
+            </div>
           </div>
         )}
       </div>
