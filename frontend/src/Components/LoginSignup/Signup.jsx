@@ -42,7 +42,7 @@ function Signup() {
       user_email : user_email.current.value
     }
     console.log(formData)
-    axios.post('http://localhost:5000/user/signup', formData)
+    axios.post('http://localhost:5000/user/Signup', formData)
       .then(response => {
         console.log('Signup successful:', response.data);
       })

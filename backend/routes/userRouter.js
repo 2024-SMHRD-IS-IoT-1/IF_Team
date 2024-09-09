@@ -62,11 +62,21 @@ router.post("/Login",(req,res)=>{
 
     });
 })
-router.get("/Login", (req, res) => {
+// 세팅페이지 접속할 때 로그인 했는지 확인 
+router.get("/Setting", (req, res) => {
     if (req.session.user_id) {
       res.json({ user_id: req.session.user_id });
     } else {
       res.status(401).json({ message: "로그인이 필요합니다." });
+    }
+  });
+  //리뷰작성 페이지 접속할때 로그인 했는지 확인 
+  router.get('/ReviewWrite', (req, res) => {
+    console.log('Session',req.session);
+    if (req.session.user_id) {
+      res.json({ user_id: req.session.user_id });
+    } else {
+      res.status(401).json({ message: 'please Login' });
     }
   });
 
