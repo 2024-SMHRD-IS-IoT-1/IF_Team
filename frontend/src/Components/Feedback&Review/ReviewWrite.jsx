@@ -40,56 +40,52 @@ function ReviewWrite() {
   const [reviewContent, setReviewContent] = useState('');
 
   // 사용자 로그인 여부 체크
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-{/*
-  // 로그인 상태 체크
-  useEffect(() => {
-    // 예: 사용자 인증 API 호출
-    axios.get('/api/check-auth') // 실제 API 경로로 변경 필요
-      .then(response => {
-        setIsLoggedIn(response.data.isAuthenticated);
-      })
-      .catch(error => {
-        console.error('로그인 상태 확인 실패:', error);
-        setIsLoggedIn(false);
-      });
-  }, []);
-  */}
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+  
    // 선호도 조사(preference)에 대한 상태
    const [preference1, setPreference1] = useState('');
    const [preference2, setPreference2] = useState('');
    const [preference3, setPreference3] = useState('');
+
    //리뷰선호도 조사 질문선택하기
    const handlePreferenceCilck = (setPreference, value) => {
        setPreference(value); //선택된 값으로 상태를 업데이트
    };
-  // 리뷰선호도 조사 질문선택하기
-  const handlePreferenceClick = (setPreference, value) => {
-    setPreference(value); // 선택된 값으로 상태를 업데이트
-  };
 
   // 리뷰 저장 처리 함수
   const handleSaveReview = () => {
-    // if (!isLoggedIn) {
-    //   alert('로그인이 필요합니다.');
-    //   return;
-    }
-
     const newReview = {
       rating,
       content: reviewContent,
       date: new Date().toLocaleDateString()
     };
-
+    if (!isLoggedIn) {
+      alert('로그인이 필요합니다.');
+      navigate('/Login')
+    }
     // 리뷰 저장 API 호출
-    axios.post('/api/save-review', newReview) // 실제 API 경로로 변경 필요
+    axios.post('http://localhost:5000/ReviewWrite', newReview) // 실제 API 경로로 변경 필요
       .then(response => {
         alert('리뷰가 저장되었습니다!');
-        navigate('/reviewlist'); // 리뷰 목록 페이지로 이동
+        navigate('/reviewList'); // 리뷰 목록 페이지로 이동
       })
       .catch(error => {
-        console.error('리뷰 저장 실패:', error);
+        console.error('false:', error);
       });
+    }  
+    // 로그인 상태 체크
+  useEffect(() => {
+    axios.get('http://localhost:5000/ReviewWrite',{ withCredentials: true })
+      .then(response => {
+        setIsLoggedIn(response.data.user_id);
+      })
+      .catch(error => {
+        console.error('로그인 상태 확인 실패:', error);
+        setIsLoggedIn(false);
+      });
+  }, [handleSaveReview]);
  
 
  
