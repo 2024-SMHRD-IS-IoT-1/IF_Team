@@ -244,7 +244,7 @@ function ReviewWrite() {
       )}
     </div>
   );
-}
+}0
 
 export default ReviewWrite;
 
