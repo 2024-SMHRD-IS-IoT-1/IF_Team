@@ -59,12 +59,7 @@ body {
     cursor: pointer;
   }
   
-  .product-content {
-    display: flex;
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  
   
   .product-image {
     width: 400px;
@@ -201,6 +196,10 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px; /* Add some margin to separate from details section */
+    width: 1500px;
+  
+  
+  
   }
   
   .details-toggle-container {
@@ -222,4 +221,32 @@ body {
   
 
 
+
+  /*쿠팡 사이트처럼 만든 코드 */
+
+  .scrollable-container {
+    width: 75%;
+    height: calc(100vh - 200px); /* Take full viewport height minus header and other content */
+    overflow-y: auto; /* Allow vertical scrolling */
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+  }
+  
+  .product-detail-image {
+    width: 95%;
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 50px; /* Space between images */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for images */
+  }
+  
+  .details-toggle-container {
+    text-align: center;
+    margin-top: 20px;
+  }
   

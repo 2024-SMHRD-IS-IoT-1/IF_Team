@@ -70,7 +70,7 @@ router.get("/Login", (req, res) => {
     }
   });
 
-  //리뷰 라우터 
+  //전체 리뷰 라우터 
   router.get('/ReviewList', async (req, res) => {
     let sql ='select * from tb_feedback where feedback_idx IS NOT NULL AND user_id IS NOT NULL'
     conn.query(sql,(err,review_list)=>{
@@ -80,6 +80,8 @@ router.get("/Login", (req, res) => {
         res.json({data:review_list});
         });
     });
+
+
 
 /*// 비밀번호 찾기
 const transporter = nodemailer.createTransport({
