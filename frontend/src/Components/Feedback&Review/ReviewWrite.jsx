@@ -128,26 +128,6 @@ function ReviewWrite() {
       <h2 className='reviewwrite-preference'>스마트 플랜테리어 무드등선호도 조사</h2>
       <h1 className='reviewwrite-preference'>선호도 조사</h1>
          
-<<<<<<< HEAD
-          {/* 질문 1 */}
-            <div className='question'>
-             <p>제품 사용 후 변화가 있었나요?</p>
-            <label>
-            <input
-            type='radio'
-            value='만족'
-            checked={preference1 === '만족'}
-            onChange={() => handlePreferenceCilck(setPreference1, '만족')}
-            />
-            만족
-             </label>
-            <label>
-            <input
-            type='radio'
-            value='보통'
-            checked={preference1 === '보통'}
-            onChange={() => handlePreferenceCilck(setPreference1, '보통')}
-=======
       {/* 질문 1 */}
       <div className='question'>
         <p>제품 사용 후 변화가 있었나요?</p>
@@ -157,20 +137,10 @@ function ReviewWrite() {
           value='만족'
           checked={preference1 === '만족'}
           onChange={() => handlePreferenceCilck(setPreference1, '만족')}
->>>>>>> ebed2e02f54a2520cf36ab5824e242c5f5032154
           />
           만족
         </label>
         <label>
-<<<<<<< HEAD
-          <input
-            type='radio'
-            value='불만족'
-            checked={preference1 === '불만족'}
-            onChange={() => handlePreferenceCilck(setPreference1, '불만족')}
-          />
-          불만족
-=======
         <input
           type='radio'
           value='보통'
@@ -178,7 +148,6 @@ function ReviewWrite() {
           onChange={() => handlePreferenceCilck(setPreference1, '보통')}
         />
         보통
->>>>>>> ebed2e02f54a2520cf36ab5824e242c5f5032154
         </label>
         <label>
         <input
@@ -232,49 +201,27 @@ function ReviewWrite() {
             value='만족'
             checked={preference3 === '만족'}
             onChange={() => handlePreferenceCilck(setPreference3, '만족')}
-<<<<<<< HEAD
-          />
-          만족
-        </label>
-        <label>
-          <input
-=======
             />
             만족
             </label>
             <label>
             <input
->>>>>>> ebed2e02f54a2520cf36ab5824e242c5f5032154
             type='radio'
             value='보통'
             checked={preference3 === '보통'}
             onChange={() => handlePreferenceCilck(setPreference3, '보통')}
-<<<<<<< HEAD
-          />
-          보통
-        </label>
-        <label>
-          <input
-=======
             />
             보통
             </label>
             <label>
             <input
->>>>>>> ebed2e02f54a2520cf36ab5824e242c5f5032154
             type='radio'
             value='불만족'
             checked={preference3 === '불만족'}
             onChange={() => handlePreferenceCilck(setPreference3, '불만족')}
-<<<<<<< HEAD
-          />
-          불만족
-        </label>
-=======
             />
             불만족
             </label>
->>>>>>> ebed2e02f54a2520cf36ab5824e242c5f5032154
         </div>
 
     </div>
