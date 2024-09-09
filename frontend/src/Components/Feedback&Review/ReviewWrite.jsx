@@ -10,6 +10,9 @@ function ReviewWrite() {
     const handlePreferenceCilck = (setPreference, value) => {
         setPreference(value); //선택된 값으로 상태를 업데이트
     };
+    const handleChange =()=>{
+      
+    }
     
 
   return (

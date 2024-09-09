@@ -74,7 +74,30 @@ const products = [
     link: 'https://www.coupang.com/vp/products/8284342540?itemId=23886260531&vendorItemId=85104201240&q=%EC%88%98%EC%A1%B1%EA%B4%80+%EB%AF%B8%EB%8B%88%EC%96%B4%EC%B2%98&itemsCount=36&searchId=7c14653b962d4dc19c2b8a7a99e62978&rank=14&isAddedCart='
   },
 
+  {
+    id:10,
+    name: '이오난사 공기 정화식물',
+    price: '3100원',
+    imageUrl:'https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/64a2/710d4d4172ab2cf0219d8978686615254a2c5724511c0778b20a4d7caedc.jpg',
+    link: 'https://www.coupang.com/vp/products/23628908?itemId=91932915&vendorItemId=3160590957&q=%EC%9D%B4%EC%98%A4%EB%82%9C%EC%82%AC&itemsCount=36&searchId=059ee70bc1b440a691adaec3b82638a6&rank=12&isAddedCart='
+  },
 
+  {
+    id:11,
+    name: '스칸디아모스 공기 정화 식물', /*돈의 여유가 있다면 살것을 권유하는 느낌으로 이미지 추가함 */
+    price: '8820원',
+    imageUrl:'https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/uvmioum4/5ff2fa9ba98f47a7806150e3ab056696.jpg',
+    link: 'https://www.coupang.com/vp/products/7133906962?itemId=17895390916&vendorItemId=85058276755&q=%EC%8A%A4%EC%B9%B8%EB%94%94%EC%95%84%EB%AA%A8%EC%8A%A4&itemsCount=36&searchId=01618a95dde54fd595bb87841ab52df5&rank=19&isAddedCart='
+  },
+
+
+  {
+    id:11,
+    name: '꽃 그루트 화분 인테리어', /*돈의 여유가 있다면 살것을 권유하는 느낌으로 이미지 추가함 */
+    price: '6900원',
+    imageUrl:'https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/b436/afe563786c32b8daf07dbfe6bce9b9a9022a81824c9eac762e0e997caca3.jpg',
+    link: 'https://www.coupang.com/vp/products/2286652536?itemId=3930496854&vendorItemId=71914983042&q=%EA%B7%B8%EB%A3%A8%ED%8A%B8+%EC%8B%9D%EB%AC%BC&itemsCount=36&searchId=9648dc3942184cb897f0263c95fb476d&rank=2'
+  },
 
 ];
 
