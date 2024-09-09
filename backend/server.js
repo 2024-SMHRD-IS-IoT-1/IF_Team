@@ -19,7 +19,7 @@ app.use(session({
     store: new fileStore(),
     cookie: {
         httpOnly: true,          // 클라이언트 측에서 쿠키에 접근하지 못하도록 설정
-        maxAge: 60 * 60 * 1000  // 1시간 동안 쿠키 유효 
+        maxAge: 60 * 60 // 1시간 동안 쿠키 유효 
     }
 }));
 // app.use(session({

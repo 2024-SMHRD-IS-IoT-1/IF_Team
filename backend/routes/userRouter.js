@@ -5,7 +5,25 @@ const nodemailer = require('nodemailer')
 const path = require('path')
 const session = require('express-session');
 const app = express();
+const jwt = require('jsonwebtoken');
+const secretKey = 'your_secret_key';
 
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) {
+        return res.status(401).json({ message: "Unauthorized: No token provided" });
+    }
+
+    jwt.verify(token, secretKey, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: "Forbidden: Invalid token" });
+        }
+        req.user = user;
+        next();
+    });
+}
 
 //axios로 받아온 데이터확인 
 router.post('/getData',(req,res)=> {
@@ -43,7 +61,7 @@ router.post("/Signup", (req, res) => {
 router.post("/Login",(req,res)=>{
     console.log('user login router', req.body)
     let {user_id,user_pw} = req.body
-    let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?"
+    let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?";
     conn.query(sql,[user_id,user_pw],(err,rows)=>{
         if (err) {
             console.log(err);
@@ -53,14 +71,21 @@ router.post("/Login",(req,res)=>{
 
         if(rows.length>0){
             // 로그인 성공 시 세션에 사용자 ID 저장
-            req.session.user_id = user_id;
-            res.json({message: "success"})
+            const token = jwt.sign({user_id},secretKey,{expiresIn:'1h'});
+            //req.session.user_id = user_id;
+            res.json({message: "success",token})
         }else{
             res.status(400).json({message : "failed"})
         }
 
     });
 })
+// 보호된 라우터에 접근 
+router.get("/ReviewWrite", authenticateToken, (req, res) => {
+    res.json({ message: `Welcome ${req.user.user_id}, you are logged in!` });
+});
+
+
 // //로그아웃 라우터 
 // router.post("/logout", (req, res) => {
 //     req.session.destroy((err) => {
@@ -79,7 +104,6 @@ router.post("/Login",(req,res)=>{
 //     }
 //   });
 
-<<<<<<< HEAD
 //   //리뷰작성 페이지 접속할때 로그인 했는지 확인 
 //   router.get('/ReviewWrite', (req, res) => {
 //     console.log('Session',req.session);
@@ -116,9 +140,9 @@ router.post("/Login",(req,res)=>{
     });
   })
   //리뷰 라우터 
-=======
+
   //전체 리뷰 라우터 
->>>>>>> 375d98ead6dbf0b745d610f29d04bc100dc32da4
+
   router.get('/ReviewList', async (req, res) => {
     let sql ='select * from tb_feedback where feedback_idx IS NOT NULL AND user_id IS NOT NULL'
     conn.query(sql,(err,review_list)=>{
