@@ -7,7 +7,7 @@ import { FaUser } from "react-icons/fa";
 //import { FaBirthdayCake } from "react-icons/fa";
 import { MdPassword } from "react-icons/md";
 import { TiUserDelete } from "react-icons/ti";
-
+import {navigate, useNavigate} from "react-router-dom";
 
 
 
@@ -51,6 +51,9 @@ function Signup() {
       });
   };
 
+  const navigate = useNavigate();
+  const handleHomePageClick = ()=>{
+    navigate('/homepage') }
   return (
     
     <div className='container'>
@@ -97,7 +100,11 @@ function Signup() {
 
         <div className='submit-container'>
             <button className="submit" >Sign UP</button> 
+        <div className='underline'></div>
+            <button id='signup-homesubmit' onClick={handleHomePageClick}>홈으로 가기</button>
         </div> 
+
+
         </form>
     </div>
   
