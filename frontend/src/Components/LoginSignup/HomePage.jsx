@@ -31,7 +31,7 @@ const HomePage = () => {
     navigate('/Recommend') 
   };
   const handleSettingsClick = ()=>{
-    navigate('/')  
+    navigate('/Setting')  
   };
   const handleCommentsClick = ()=>{
     navigate('/FeedbackMain')  
