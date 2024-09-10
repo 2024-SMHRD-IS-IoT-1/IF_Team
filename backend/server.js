@@ -65,7 +65,9 @@ app.listen(app.get('port'), ()=>{
     console.log(`Server is running on ${app.get('port')}`);
 })
 
-
+app.post('/ReviewWrite',(req,res)=>{
+  res.send('리뷰가 저장되었습니다');
+})
 
 
 

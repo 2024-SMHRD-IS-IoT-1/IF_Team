@@ -31,7 +31,6 @@ function LoginPage() {
 
           // JWT 토큰 저장
           localStorage.setItem('token', response.data.token);
-
           setLoginUserId(response.data.user_id); // 로그인 성공 시 user_id 저장
           alert('로그인 성공');
           navigate('/homepage'); // 로그인 성공 후 페이지 이동
