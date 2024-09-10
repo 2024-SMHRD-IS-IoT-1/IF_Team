@@ -107,13 +107,12 @@ router.get("/ReviewWrite", authenticateToken, (req, res) => {
 // 리뷰작성 데이터를 데이터베이스로 이동
 router.post('/ReviewWrite', (req, res) => {
     const token = req.headers['authorization']; // 요청 헤더에서 토큰 가져오기
-
     if (!token) {
         return res.status(401).json({ message: 'please login' });
     }
-
+    res.json(user_id)
     // 토큰 해독
-    jwt.verify(token, 'your_secret_key', (err, decoded) => {
+    jwt.verify(token, authenticateToken, (err, decoded) => {
         if (err) {
             return res.status(401).json({ message: 'invalid token' });
         }
