@@ -117,19 +117,10 @@ router.post('/ReviewWrite', (req, res) => {
         if (err) {
             return res.status(401).json({ message: 'invalid token' });
         }
-
         const user_id = decoded.user_id; // 디코딩된 토큰에서 user_id 추출
-
-        // 클라이언트로부터 받은 리뷰 데이터
-        const { feedback_content, feedback_ratings } = req.body;
-
-        // SQL 쿼리문 작성
-        const sql = `
-            INSERT INTO tb_feedback (feedback_idx, user_id, feedback_content, feedback_ratings, created_at) 
-            VALUES (?, ?, ?, ?, NOW())`;
-
-        // 데이터베이스에 리뷰 데이터 삽입
-        conn.query(sql, [user_id, feedback_content, feedback_ratings], (err, result) => {
+        const { content, rating } = req.body;
+        const sql = `INSERT INTO tb_feedback (user_id, feedback_content, feedback_ratings, created_at) VALUES (?, ?, ?, NOW())`;
+        conn.query(sql, [user_id, content,rating], (err, result) => {
             if (err) {
                 console.error('error:', err);
                 return res.status(500).json({ message: "failed", error: err.message });
