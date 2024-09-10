@@ -79,7 +79,7 @@ router.post("/Login",(req,res)=>{
 //     }
 //   });
 
-<<<<<<< HEAD
+
 //   //리뷰작성 페이지 접속할때 로그인 했는지 확인 
 //   router.get('/ReviewWrite', (req, res) => {
 //     console.log('Session',req.session);
@@ -116,9 +116,9 @@ router.post("/Login",(req,res)=>{
     });
   })
   //리뷰 라우터 
-=======
+
   //전체 리뷰 라우터 
->>>>>>> 375d98ead6dbf0b745d610f29d04bc100dc32da4
+
   router.get('/ReviewList', async (req, res) => {
     let sql ='select * from tb_feedback where feedback_idx IS NOT NULL AND user_id IS NOT NULL'
     conn.query(sql,(err,review_list)=>{
