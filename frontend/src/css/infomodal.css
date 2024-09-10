@@ -189,6 +189,11 @@ body {
 
   .product-page {
     padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .product-content {
@@ -249,4 +254,13 @@ body {
     text-align: center;
     margin-top: 20px;
   }
+  
+
+
+
+  
+
+  
+  
+  
   

@@ -6,7 +6,7 @@ const path = require('path')
 const session = require('express-session');
 const app = express();
 const jwt = require('jsonwebtoken');
-const secretKey = 'your_secret_key';
+const secretKey = 'vonedlb';
 
 
 //axios로 받아온 데이터확인 
@@ -104,32 +104,37 @@ router.get("/ReviewWrite", authenticateToken, (req, res) => {
 //   });
 
 
+
+//   //리뷰작성 페이지 접속할때 로그인 했는지 확인 
+//   router.get('/ReviewWrite', (req, res) => {
+//     console.log('Session',req.session);
+//     if (req.session.user_id) {
+//       res.json({ user_id: req.session.user_id });
+//     } else {
+//       res.status(401).json({ message: 'please Login' });
+//     }
+//   });
+
+
+
 // 리뷰작성 데이터를 데이터베이스로 이동
 router.post('/ReviewWrite', (req, res) => {
     const token = req.headers['authorization']; // 요청 헤더에서 토큰 가져오기
-
     if (!token) {
         return res.status(401).json({ message: 'please login' });
     }
-
     // 토큰 해독
-    jwt.verify(token, 'your_secret_key', (err, decoded) => {
+    jwt.verify(token, secretKey, (err, decoded) => {
+
         if (err) {
+            console.log(err)
             return res.status(401).json({ message: 'invalid token' });
         }
-
         const user_id = decoded.user_id; // 디코딩된 토큰에서 user_id 추출
-
-        // 클라이언트로부터 받은 리뷰 데이터
-        const { feedback_content, feedback_ratings } = req.body;
-
-        // SQL 쿼리문 작성
-        const sql = `
-            INSERT INTO tb_feedback (feedback_idx, user_id, feedback_content, feedback_ratings, created_at) 
-            VALUES (?, ?, ?, ?, NOW())`;
-
-        // 데이터베이스에 리뷰 데이터 삽입
-        conn.query(sql, [user_id, feedback_content, feedback_ratings], (err, result) => {
+        const { content, rating } = req.body;
+        console.log(content);
+        const sql = `INSERT INTO tb_feedback (user_id, feedback_content, feedback_ratings, created_at) VALUES (?, ?, ?, NOW())`;
+        conn.query(sql, [user_id, content,rating], (err, result) => {
             if (err) {
                 console.error('error:', err);
                 return res.status(500).json({ message: "failed", error: err.message });
