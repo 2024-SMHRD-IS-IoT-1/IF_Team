@@ -91,9 +91,9 @@ function ReviewWrite() {
     };
 
     // JWT를 헤더에 포함하여 API 요청
-    axios.post('http://localhost:5000/ReviewWrite', newReview, {
+    axios.post('http://localhost:5000/user/ReviewWrite', newReview, {
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `${token}`
       }
     })
       .then(()=> {
