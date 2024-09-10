@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/recommend.css';
 import { Link } from 'react-router-dom';
 
+import { HiOutlineHome } from "react-icons/hi";
 
 const products = [
   {
@@ -102,23 +103,57 @@ const products = [
 ];
 
 const ProductRecommendation = () => {
+  const [selectedCategory, setSelectedCategory] = useState('home')
+  const filteredProducts = products.filter(product => {
+  if (selectedCategory === 'All') return true; 
+  if (selectedCategory === '자갈') return ['백자갈' , '흑자갈', '오색자갈', '산호색 자갈', '보석자갈', '맥반석자갈', '야광자갈'].includes(product.name);
+  if (selectedCategory === '피규어') return ['해양동물 피규어', '야광 미니피규어'].includes(product.name);
+  if (selectedCategory === '식물') return ['이오난사 공기 정화식물', '스칸디아모스 공기 정화 식물', '꽃 그루트 화분 인테리어'].includes(product.name);
+  return true;
+  });
+
   return (
-    <div className="container">
+    <div className="recommend-container">
+      <div className='recommend-header'>
+        <h1>IF store. </h1>
+        <h2>SMART PLANTERIOR MOOD LIGHT을</h2>
+        <h2>언제든, 당신에게 맞는 방식으로</h2>
+      </div>
+      
       {/* 상단 메뉴바 */}
-      <nav className="navbar">
-        <ul className="menu">
-          <Link to="/" className="submenu">Home</Link>
-          <Link to="/Recommend" className="submenu">추천제품</Link>
-          <Link to="/Product" className="submenu">제품 설명</Link>
-          <Link to="#contact" className="submenu">리뷰</Link>
+      <nav className="recommend-navbar">
+        <ul className="recommend-menu">
+          <Link to="/" className="recommend-submenu">
+              <HiOutlineHome size={30} /> 
+              <div> home</div>
+          </Link>
+          <Link to="/Recommend" className="recommend-submenu" 
+                onClick={() => setSelectedCategory('All')}>
+            <div>All</div>
+          </Link>
+          <Link to="/Recommend" className="recommend-submenu" 
+              onClick={() => setSelectedCategory('자갈')}>
+            <div>자갈</div>
+          </Link>
+          
+          <Link to="#contact" className="recommend-submenu" 
+              onClick={() => setSelectedCategory('피규어')}>
+           <div>피규어</div>
+          </Link>
+
+          <Link to="#contact" className="recommend-submenu" 
+              onClick={() => setSelectedCategory('식물')}>
+           <div>식물</div>
+          </Link>
         </ul>
       </nav>
-
+      <div id='recommend-underline'></div>
       {/* 제품 목록 */}
-      <div className="product-list">
-        {products.map(product => (
-          <div className="product-card" key={product.id}>
+      <div className="recommend-product-list">
+        {filteredProducts.map(product => (
+          <div className="recommend-product-card" key={product.id}>
             <a href={product.link} target="_blank" rel="noopener noreferrer"> {/* 클릭 시 새 탭에서 쿠팡으로 이동 */}
+              <a href={product.link} target="_blank" rel='noopener noreferrer'></a>
               <img src={product.imageUrl} alt={product.name} />
               <h3>{product.name}</h3>
               <p>{product.price}</p>
