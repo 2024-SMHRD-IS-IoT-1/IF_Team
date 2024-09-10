@@ -104,6 +104,19 @@ router.get("/ReviewWrite", authenticateToken, (req, res) => {
 //   });
 
 
+
+//   //리뷰작성 페이지 접속할때 로그인 했는지 확인 
+//   router.get('/ReviewWrite', (req, res) => {
+//     console.log('Session',req.session);
+//     if (req.session.user_id) {
+//       res.json({ user_id: req.session.user_id });
+//     } else {
+//       res.status(401).json({ message: 'please Login' });
+//     }
+//   });
+
+
+
 // 리뷰작성 데이터를 데이터베이스로 이동
 router.post('/ReviewWrite', (req, res) => {
     const token = req.headers['authorization']; // 요청 헤더에서 토큰 가져오기
