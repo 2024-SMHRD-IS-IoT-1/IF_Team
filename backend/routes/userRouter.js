@@ -5,6 +5,8 @@ const nodemailer = require('nodemailer')
 const path = require('path')
 const session = require('express-session');
 const app = express();
+const jwt = require('jsonwebtoken');
+const secretKey = 'your_secret_key';
 
 
 //axios로 받아온 데이터확인 
@@ -43,7 +45,7 @@ router.post("/Signup", (req, res) => {
 router.post("/Login",(req,res)=>{
     console.log('user login router', req.body)
     let {user_id,user_pw} = req.body
-    let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?"
+    let sql = "select user_id, user_pw from tb_user where user_id=? and user_pw=?";
     conn.query(sql,[user_id,user_pw],(err,rows)=>{
         if (err) {
             console.log(err);
@@ -53,14 +55,35 @@ router.post("/Login",(req,res)=>{
 
         if(rows.length>0){
             // 로그인 성공 시 세션에 사용자 ID 저장
-            req.session.user_id = user_id;
-            res.json({message: "success"})
+            const token = jwt.sign({user_id},secretKey,{expiresIn:'1h'});
+            //req.session.user_id = user_id;
+            res.json({message: "success",token})
         }else{
             res.status(400).json({message : "failed"})
         }
 
     });
 })
+// 토큰 미들웨어 
+function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (token==null) return res.sendStatus(401);
+    jwt.verify(token, secretKey, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: "Forbidden: Invalid token" });
+        }
+        req.user = user;
+        next(); // 다음 라우터로 이동 
+    });
+}
+// 보호된 라우터에 접근 
+router.get("/ReviewWrite", authenticateToken, (req, res) => {
+    res.json({ message: `Welcome ${req.user.user_id}, you are logged in!` });
+});
+
+
 // //로그아웃 라우터 
 // router.post("/logout", (req, res) => {
 //     req.session.destroy((err) => {
@@ -70,6 +93,7 @@ router.post("/Login",(req,res)=>{
 //         res.json({ message: "Logout successful" });
 //     });
 // });
+
 // // 세팅페이지 접속할 때 로그인 했는지 확인 
 // router.get("/Setting", (req, res) => {
 //     if (req.session.user_id) {
@@ -78,6 +102,7 @@ router.post("/Login",(req,res)=>{
 //       res.status(401).json({ message: "로그인이 필요합니다." });
 //     }
 //   });
+
 
 
 //   //리뷰작성 페이지 접속할때 로그인 했는지 확인 
@@ -90,31 +115,48 @@ router.post("/Login",(req,res)=>{
 //     }
 //   });
 
-  // 리뷰작성 데이터를 데이터베이스로 이동 
-  router.get('/ReviewWrite',(req,res)=>{
-    const user_id=req.session.user_id;
-    if(!user_id){
-        return res.status(401).json({message:'please login'})
+
+
+// 리뷰작성 데이터를 데이터베이스로 이동
+router.post('/ReviewWrite', (req, res) => {
+    const token = req.headers['authorization']; // 요청 헤더에서 토큰 가져오기
+
+    if (!token) {
+        return res.status(401).json({ message: 'please login' });
     }
-    console.log(req.body)
-    let {feedback_ratings,feedback_content}=req.body
-    let sql = '"INSERT INTO tb_feedback (feedback_idx,user_id,feedback_content,feedback_ratings,created_at) VALUES (?, ?, ?, ?,NOW())";'
-    conn.query(sql, [user_id, feedback_content, feedback_ratings], (err, result) => {
+
+    // 토큰 해독
+    jwt.verify(token, 'your_secret_key', (err, decoded) => {
         if (err) {
-            console.error('error:', err);
-            return res.status(500).json({ message: "failed", error: err.message });
+            return res.status(401).json({ message: 'invalid token' });
         }
-        console.log('Result:', result);
-        try {
-        if (result.affectedRows > 0) {
-            res.json({ message: "success" });
-        } else {
-            res.json({ message: "failed" });
-        }}catch{
-            console.log(err);
-        }
+
+        const user_id = decoded.user_id; // 디코딩된 토큰에서 user_id 추출
+
+        // 클라이언트로부터 받은 리뷰 데이터
+        const { feedback_content, feedback_ratings } = req.body;
+
+        // SQL 쿼리문 작성
+        const sql = `
+            INSERT INTO tb_feedback (feedback_idx, user_id, feedback_content, feedback_ratings, created_at) 
+            VALUES (?, ?, ?, ?, NOW())`;
+
+        // 데이터베이스에 리뷰 데이터 삽입
+        conn.query(sql, [user_id, feedback_content, feedback_ratings], (err, result) => {
+            if (err) {
+                console.error('error:', err);
+                return res.status(500).json({ message: "failed", error: err.message });
+            }
+
+            // 삽입 결과에 따라 응답
+            if (result.affectedRows > 0) {
+                res.json({ message: "success" });
+            } else {
+                res.json({ message: "failed" });
+            }
+        });
     });
-  })
+});
   //리뷰 라우터 
 
   //전체 리뷰 라우터 
