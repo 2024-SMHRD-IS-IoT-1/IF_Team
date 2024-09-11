@@ -45,6 +45,8 @@ function Signup() {
     axios.post('http://localhost:5000/user/Signup', formData)
       .then(response => {
         console.log('Signup successful:', response.data);
+        navigate('/homepage')
+        alert('회원가입 성공 ')
       })
       .catch(error => {
         console.error('There was an error signing up!', error);

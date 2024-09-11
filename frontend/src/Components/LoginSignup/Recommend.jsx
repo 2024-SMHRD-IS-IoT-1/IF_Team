@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../css/recommend.css';
 import { Link } from 'react-router-dom';
 
+import { HiOutlineHome } from "react-icons/hi";
 
 const products = [
   {
@@ -75,54 +76,91 @@ const products = [
   },
 
   {
-    id:10,
+    id: 10,
     name: '이오난사 공기 정화식물',
-    price: '3100원',
-    imageUrl:'https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/64a2/710d4d4172ab2cf0219d8978686615254a2c5724511c0778b20a4d7caedc.jpg',
+    price: '3,100원',
+    imageUrl: 'https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/64a2/710d4d4172ab2cf0219d8978686615254a2c5724511c0778b20a4d7caedc.jpg',
     link: 'https://www.coupang.com/vp/products/23628908?itemId=91932915&vendorItemId=3160590957&q=%EC%9D%B4%EC%98%A4%EB%82%9C%EC%82%AC&itemsCount=36&searchId=059ee70bc1b440a691adaec3b82638a6&rank=12&isAddedCart='
   },
 
   {
-    id:11,
+    id: 11,
     name: '스칸디아모스 공기 정화 식물', /*돈의 여유가 있다면 살것을 권유하는 느낌으로 이미지 추가함 */
-    price: '8820원',
-    imageUrl:'https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/uvmioum4/5ff2fa9ba98f47a7806150e3ab056696.jpg',
+    price: '8,820원',
+    imageUrl: 'https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/uvmioum4/5ff2fa9ba98f47a7806150e3ab056696.jpg',
     link: 'https://www.coupang.com/vp/products/7133906962?itemId=17895390916&vendorItemId=85058276755&q=%EC%8A%A4%EC%B9%B8%EB%94%94%EC%95%84%EB%AA%A8%EC%8A%A4&itemsCount=36&searchId=01618a95dde54fd595bb87841ab52df5&rank=19&isAddedCart='
   },
 
 
   {
-    id:11,
+    id: 12,
     name: '꽃 그루트 화분 인테리어', /*돈의 여유가 있다면 살것을 권유하는 느낌으로 이미지 추가함 */
     price: '6900원',
-    imageUrl:'https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/b436/afe563786c32b8daf07dbfe6bce9b9a9022a81824c9eac762e0e997caca3.jpg',
+    imageUrl: 'https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/vendor_inventory/b436/afe563786c32b8daf07dbfe6bce9b9a9022a81824c9eac762e0e997caca3.jpg',
     link: 'https://www.coupang.com/vp/products/2286652536?itemId=3930496854&vendorItemId=71914983042&q=%EA%B7%B8%EB%A3%A8%ED%8A%B8+%EC%8B%9D%EB%AC%BC&itemsCount=36&searchId=9648dc3942184cb897f0263c95fb476d&rank=2'
   },
 
 ];
 
 const ProductRecommendation = () => {
+  const [selectedCategory, setSelectedCategory] = useState('home')
+
+  const filteredProducts = products.filter(product => {
+
+    if (selectedCategory === 'All') return true;
+    if (selectedCategory === '자갈') return ['백자갈', '흑자갈', '오색자갈', '산호색 자갈', '보석자갈', '맥반석자갈', '야광자갈'].includes(product.name);
+    if (selectedCategory === '피규어') return ['해양동물 피규어', '야광 미니피규어'].includes(product.name);
+    if (selectedCategory === '식물') return ['이오난사 공기 정화식물', '스칸디아모스 공기 정화 식물', '꽃 그루트 화분 인테리어'].includes(product.name);
+    return true;
+  });
+
+
   return (
-    <div className="container">
+    <div className="recommend-container">
+      <div className='recommend-header'>
+        <h1>IF store. </h1>
+        <h2>SMART PLANTERIOR MOOD LIGHT을</h2>
+        <h2>언제든, 당신에게 맞는 방식으로</h2>
+      </div>
+
       {/* 상단 메뉴바 */}
-      <nav className="navbar">
-        <ul className="menu">
-          <Link to="/" className="submenu">Home</Link>
-          <Link to="/Recommend" className="submenu">추천제품</Link>
-          <Link to="/Product" className="submenu">제품 설명</Link>
-          <Link to="#contact" className="submenu">리뷰</Link>
+      <nav className="recommend-navbar">
+        <ul className="recommend-menu">
+          <Link to="/homepage" className="recommend-submenu">
+            <HiOutlineHome size={30} />
+
+          </Link>
+          <Link to="/Recommend" className="recommend-submenu"
+            onClick={() => setSelectedCategory('All')}>
+            <div>All</div>
+          </Link>
+          <Link to="/Recommend" className="recommend-submenu"
+            onClick={() => setSelectedCategory('자갈')}>
+            <div>자갈</div>
+          </Link>
+
+          <Link to="#contact" className="recommend-submenu"
+            onClick={() => setSelectedCategory('피규어')}>
+            <div>피규어</div>
+          </Link>
+
+          <Link to="#contact" className="recommend-submenu"
+            onClick={() => setSelectedCategory('식물')}>
+            <div>식물</div>
+          </Link>
         </ul>
       </nav>
-
+      <div id='recommend-underline'></div>
       {/* 제품 목록 */}
-      <div className="product-list">
-        {products.map(product => (
-          <div className="product-card" key={product.id}>
+      <div className="recommend-product-list">
+        {filteredProducts.map((product, idx) => (
+          <div className="recommend-product-card" key={product.id + idx}>
             <a href={product.link} target="_blank" rel="noopener noreferrer"> {/* 클릭 시 새 탭에서 쿠팡으로 이동 */}
+              <a href={product.link} target="_blank" rel='noopener noreferrer'></a>
               <img src={product.imageUrl} alt={product.name} />
               <h3>{product.name}</h3>
               <p>{product.price}</p>
-            </a>
+          </a>
           </div>
         ))}
       </div>

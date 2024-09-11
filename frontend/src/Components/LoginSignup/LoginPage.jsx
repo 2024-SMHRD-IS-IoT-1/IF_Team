@@ -20,16 +20,19 @@ function LoginPage() {
   const handleLogin = (e) => {
     e.preventDefault();
     const formData = {
-      user_id : user_id.current.value,
-      user_pw : user_pw.current.value,
-    }
-    console.log(formData)
+      user_id: user_id.current.value,
+      user_pw: user_pw.current.value,
+    };
+    console.log(formData);
     axios.post('http://localhost:5000/user/Login', formData)
       .then(response => {
-        if(response.data.message==='success'){ 
-        console.log('Login successful:', response.data.user_id);
-        setLoginUserId(response.data.user_id); // 로그인 성공 시 user_id 저장
-        alert('로그인 성공')
+        if (response.data.message === 'success') {
+          console.log('Login successful:', response.data.user_id);
+
+          // JWT 토큰 저장
+          localStorage.setItem('token', response.data.token);
+          setLoginUserId(response.data.user_id); // 로그인 성공 시 user_id 저장
+          alert('로그인 성공');
           navigate('/homepage'); // 로그인 성공 후 페이지 이동
         } else {
           alert('로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.');
@@ -39,6 +42,7 @@ function LoginPage() {
         console.error('There was an error Login!', error);
       });
   };
+  
   // // 로그인된 사용자 정보 가져오기
   //   const fetchUserData = () => {
   //     axios.get('http://localhost:5000/Login')
