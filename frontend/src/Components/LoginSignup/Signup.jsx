@@ -50,6 +50,7 @@ function Signup() {
       })
       .catch(error => {
         console.error('There was an error signing up!', error);
+        alert('이미 존재하는 아이디입니다.')
       });
   };
 
