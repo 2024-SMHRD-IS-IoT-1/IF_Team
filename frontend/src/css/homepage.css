@@ -95,6 +95,29 @@
 .homepage-btn-login:hover {
   background: #3b82f6; /* 호버 시 어두운 파란색 */
 }
+.homepage-btn-logout {
+width: 250px; /* 버튼 너비를 고정 설정 */
+height: 70px; /* 버튼 높이를 고정 설정 */
+background: #000000a5; /* 파란색 포인트 컬러 */
+color: white;
+border: none; /* 버튼에 테두리를 없앰 */
+font-size: 30px; /* 버튼 텍스트의 크기를 18px로 설정 */
+font-weight: bold;
+cursor: pointer; /* 버튼 위에 마우스를 올리면 커서가 손가락 모양으로 변경됨 */
+padding: 15px 30px;
+border-radius: 25px; /* 버튼 모서리를 25px로 둥글게 만듦 */
+position: absolute; /* 부모 컨테이너를 기준으로 절대 위치 지정 */
+top: 830px; /* 제목에서부터 고정된 거리 설정 */
+left: 50%;
+transform: translateX(-50%); /* 버튼의 중앙 정렬을 위한 이동 */
+z-index: 1000; /* 버튼이 다른 요소보다 위에 보이도록 설정 */
+letter-spacing: 10px;  /*글자간격*/
+font-family: 'Cafe24Behappy';
+}
+.homepage-btn-logout:hover {
+  background: #3b82f6; /* 호버 시 어두운 파란색 */
+}
+
 .homepage-Loginlink {
   text-decoration: none;
   cursor: pointer;
@@ -104,7 +127,7 @@
   font-family: 'Cafe24Decoschool';
   font-size: 16px;
   position: absolute; /* 위치를 절대값으로 설정 */
-  top: 780px;; /* 버튼 바로 위에 위치 */
+  top: 860px;; /* 버튼 바로 위에 위치 */
   left: 50%; /* 수평 중앙 정렬 */
   transform: translateX(-50%); /* 수평 중앙 정렬 */
   display: flex;

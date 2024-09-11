@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import '../css/ardoino.css';
 
-function App() {
+function toget() {
   const [temperature, setTemperature] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [brightness, setBrightness] = useState(null);
@@ -88,4 +88,4 @@ function App() {
   );
 }
 
-export default App;
+export default toget;

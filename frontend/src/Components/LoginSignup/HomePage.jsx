@@ -14,6 +14,7 @@ import { FaRegThumbsUp } from "react-icons/fa";
 const HomePage = () => {
   const navigate = useNavigate(); // useNavigate 훅 사용
   
+ 
   const handleLoginClick = () => {
     navigate('/Login'); // LoginPage로 이동
   };
@@ -74,7 +75,8 @@ const HomePage = () => {
     {/* 로그인 버튼 */}
     <div className='homepage-buttion-container'>
       <button className='homepage-btn-login' type='button' onClick={handleLoginClick}>LOGIN</button>
-      <button onClick={()=>{
+      
+      <button className= 'homepage-btn-logout' type='button'  onClick={()=>{
         localStorage.removeItem('token')
       }}>logout</button>
       <div onClick={handleSiginupClick} className='homepage-Loginlink'>더 많은 기능을 사용하고 싶다면 ? sign up</div>

@@ -84,8 +84,17 @@ const Setting = () => {
     console.error("Geolocation is not supported by this browser.");
   }
 }, []);
-    return (
+
+  // 수면환경의 값
+  const [result, setResult] = useState(
+    axios
+    .get("192.168.219.68:6000")
+  ) 
+
+  return (
+
    
+
     <div className='setting-container'>
         <div className='setting-header'>
             <h1 id='setting-title1'>MOOD LIGHT</h1>

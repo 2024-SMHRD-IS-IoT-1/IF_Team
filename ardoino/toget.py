@@ -52,4 +52,4 @@ def update():
     return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
-    app.run(host='192.168.219.60', port=6000)
+    app.run(host='192.168.219.68', port=6000)
