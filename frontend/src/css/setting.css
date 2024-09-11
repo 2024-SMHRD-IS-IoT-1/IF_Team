@@ -1,0 +1,72 @@
+.setting-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    font-family:'HSGooltokki' ;
+    align-items: center;
+    height: 250px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
+.setting-header {
+    margin-top: 40px;
+  }
+  
+#setting-title1 {
+    margin: 0;
+    font-size: 80px;
+    font-family:'HSGooltokki' ;
+    color: #b7d1eb; /* 파란색 포인트 컬러 */
+    line-height: 1; /* 줄 간격 조정 */
+  }
+#setting-title2 {
+    margin: 0;
+    font-size: 70px;
+    font-family:'HSGooltokki' ;
+    color: #3b82f6; /* 파란색 포인트 컬러 */
+    line-height: 1.5; /* 줄 간격 조정 */
+  }
+
+.setting-today-weather{
+    margin-top: 20px;
+}
+.weater-box{
+   background-color: #d4d4d4;
+   padding: 20px;
+   border-radius: 10px ;
+}
+.weather-data img {
+    width: 50px;
+    height: 50px;
+}
+.setting-menubox{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+.setting-temp, .setting-hum {
+    background-color: #3b82f6;
+    color: #fff;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.setting-led {
+    grid-column: span 2;
+    background-color: #b7d1eb;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.chart-section {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 500px;
+}
