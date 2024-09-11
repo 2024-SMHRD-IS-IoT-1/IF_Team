@@ -101,8 +101,10 @@ const Setting = () => {
             </div>
           </div>
         </div>
+
+        <h2>나의 수면환경은?</h2>
         <div className='setting-menubox'>
-            <div className='setting-temp' >Temperpature : {temp}ºC</div>
+            <div className='setting-temp' >Temperpature : ºC</div>
             <div className='setting-hum'>Humidity : </div>
             <div className='setting-led'>
               <h4>LED 조절</h4>
@@ -110,7 +112,7 @@ const Setting = () => {
               </div>
         </div>
         <div>
-          <h2>나의 수면환경은?</h2>
+         
           <div>시간별 온도,습도,조도 측정 통계</div>
         </div>
       </div>
