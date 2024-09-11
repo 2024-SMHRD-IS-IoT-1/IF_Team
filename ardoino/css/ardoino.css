@@ -1,0 +1,75 @@
+.App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  h1 {
+    font-size: 50px;
+    font-family: 'HSGooltokki', Arial, sans-serif;
+    color: #3b82f6;
+    margin: 20px 0;
+    line-height: 1.2;
+  }
+  
+  .sensor-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  .sensor {
+    background-color: #e5e5e5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+  }
+  
+  .sensor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 14px rgba(136, 136, 136, 0.4);
+    background-color: #f0ff7e;
+  }
+  
+  .label {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #1f2937;
+    font-family: 'HakgyoansimChilpanjiugaeTTF-B', Arial, sans-serif;
+  }
+  
+  .value {
+    font-size: 2.5rem;
+    color: #0084ff9d;
+  }
+  
+  #colorPickerContainer {
+    margin-top: 40px;
+  }
+  
+  #colorPicker {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  #colorDisplay {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border: 2px solid black;
+    display: inline-block;
+  }
+  
+  #colorValue {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
