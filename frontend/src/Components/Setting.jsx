@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 // import TempHum from '../../../ardoino/templates/TempHum.html'
 // import TempHum_Ardo from '../../../ardoino/ardo/t_h_sensor.ino'
 import axios from 'axios'
-
+import '../css/setting.css'
 export const setting = () => {
 
   return (
