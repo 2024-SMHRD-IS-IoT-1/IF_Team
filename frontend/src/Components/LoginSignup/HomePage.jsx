@@ -1,15 +1,15 @@
-import React from 'react';
+
 import { navigate, useNavigate } from 'react-router-dom'; // useNavigate 훅 임포트
 import '../../css/homepage.css'; // 스타일을 적용하기 위한 CSS 파일을 import
 import '../../App.css'
 import { Link } from 'react-router-dom';
-
 //아이콘
 import { HiOutlineHome } from "react-icons/hi";
 import { FaUserAlt, FaCog } from "react-icons/fa"; // 프로필 및 설정 아이콘 추가
 import { MdOutlineRateReview } from "react-icons/md";
 import { FaCommentDots } from "react-icons/fa";
 import { FaRegThumbsUp } from "react-icons/fa";
+  // 사용자 로그인 여부 및 사용자 ID 상태 관리
 
 const HomePage = () => {
   const navigate = useNavigate(); // useNavigate 훅 사용
@@ -31,7 +31,12 @@ const HomePage = () => {
     navigate('/Recommend') 
   };
   const handleSettingsClick = ()=>{
-    navigate('/Setting')  
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/Setting'); // 로그인되어 있으면 설정 페이지로 이동
+    } else {
+      alert('로그인이 필요합니다.'); // 로그인 안 되어 있으면 메시지 표시
+    }
   };
   const handleCommentsClick = ()=>{
     navigate('/FeedbackMain')  

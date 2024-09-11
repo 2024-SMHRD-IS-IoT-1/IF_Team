@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {jwtDecode} from 'jwt-decode'; // jwtDecode 함수는 from 'jwt-decode'에서 가져옵니다.
+import {jwtDecode} from 'jwt-decode'; 
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import '../../css/reviewwrite.css';
 
